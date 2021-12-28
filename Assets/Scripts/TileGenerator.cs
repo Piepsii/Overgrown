@@ -7,19 +7,23 @@ public class TileGenerator : MonoBehaviour
 {
     public float sizeOfmap;
     public GameObject prefab;
-    bool generated;
 
-    void Update()
+    public void CreateGrid()
     {
         if (Mathf.Sqrt(sizeOfmap) % 1 > 0)
         {
             Debug.LogError("Invalid grid size");
-            generated = false;
-
         }
-        else if (!generated)
+        else
         {
-            GenerateGrid();
+            if (transform.childCount > 0)
+            {
+                Debug.LogError("Destroy previous grid first");
+            }
+            else
+            {
+                GenerateGrid();
+            }
         }
     }
 
@@ -35,6 +39,16 @@ public class TileGenerator : MonoBehaviour
                 gridtile.name = (1 + k).ToString() + "x" + (1 + i).ToString();
             }
         }
-        generated = true;
+    }
+
+    public void DeleteGrid()
+    {
+        while (transform.childCount > 0)
+        {
+            foreach (Transform child in transform)
+            {
+                DestroyImmediate(child.gameObject);
+            }
+        }
     }
 }
