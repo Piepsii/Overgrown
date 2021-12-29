@@ -9,7 +9,6 @@ public class TileGenerator : MonoBehaviour
     public GameObject prefab;
     public int columns;
     public int rows;
-    private List<GameObject> buildings = new List<GameObject>();
 
     public void CreateGrid()
     {
@@ -35,6 +34,13 @@ public class TileGenerator : MonoBehaviour
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z + (i * 10) + 5);
                 gridtile.name = (1 + k).ToString() + "x" + (1 + i).ToString();
                 gridtile.GetComponent<Building>().GenerateBuilding(Random.Range(0, 2));
+                foreach(Transform tr in gridtile.transform)
+                {
+                    if(tr.GetComponent<RoadSlot>())
+                    {
+                        tr.GetComponent<RoadSlot>().BuildRoad();
+                    }
+                }
             }
         }
     }

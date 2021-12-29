@@ -49,9 +49,9 @@ public class Building : MonoBehaviour
 
     void DeleteFloors()
     {
-        while (transform.childCount > 0)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            for (int i = 0; i < transform.childCount; i++)
+            if (transform.GetChild(i).GetComponent<Building>())
             {
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
@@ -60,11 +60,11 @@ public class Building : MonoBehaviour
 
     public void GenerateBuilding(int num)
     {
-        if(num == 0)
+        if (num == 0)
         {
             size = BuildingSize.OneFloor;
         }
-        else if(num == 1)
+        else if (num == 1)
         {
             size = BuildingSize.TwoFloors;
         }
