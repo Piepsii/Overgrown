@@ -58,4 +58,20 @@ public class Building : MonoBehaviour
         }
     }
 
+    public void GenerateBuilding(int num)
+    {
+        if(num == 0)
+        {
+            size = BuildingSize.OneFloor;
+        }
+        else if(num == 1)
+        {
+            size = BuildingSize.TwoFloors;
+        }
+        else
+        {
+            size = BuildingSize.ThreeFloors;
+        }
+        BuildFloors();
+    }
 }

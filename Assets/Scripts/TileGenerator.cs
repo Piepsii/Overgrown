@@ -7,8 +7,9 @@ using System.Reflection;
 public class TileGenerator : MonoBehaviour
 {
     public GameObject prefab;
-    public int rows;
     public int columns;
+    public int rows;
+    private List<GameObject> buildings = new List<GameObject>();
 
     public void CreateGrid()
     {
@@ -33,6 +34,7 @@ public class TileGenerator : MonoBehaviour
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z + (i * 10) + 5);
                 gridtile.name = (1 + k).ToString() + "x" + (1 + i).ToString();
+                gridtile.GetComponent<Building>().GenerateBuilding(Random.Range(0, 2));
             }
         }
     }
@@ -56,4 +58,6 @@ public class TileGenerator : MonoBehaviour
         var method = type.GetMethod("Clear");
         method.Invoke(new object(), null);
     }
+
+    
 }
