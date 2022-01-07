@@ -101,11 +101,12 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _checked = true;
-        if(_checked)
+        if(!_checked)
         {
             GetComponent<Renderer>().material.color = Color.red;
-        } 
+            _checked = true;
+
+        }
         else
         {
             GetComponent<Renderer>().material.color = Color.white;
