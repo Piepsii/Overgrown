@@ -32,9 +32,9 @@ public class TileGenerator : MonoBehaviour
             {
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z + (i * 10) + 5);
-                gridtile.name = (1 + k).ToString() + "x" + (1 + i).ToString();
-                gridtile.GetComponent<Building>().GenerateBuilding(Random.Range(0, 2));
-                foreach(Transform tr in gridtile.transform)
+                gridtile.name = "Tile " + (1 + k).ToString() + "x" + (1 + i).ToString();
+                gridtile.GetComponent<Tile>().GenerateTile(Random.Range(0, 2));
+                foreach(Transform tr in gridtile.transform.GetChild(0)) //To be changed
                 {
                     if(tr.GetComponent<RoadSlot>())
                     {

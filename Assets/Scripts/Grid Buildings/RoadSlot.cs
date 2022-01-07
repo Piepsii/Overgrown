@@ -9,9 +9,6 @@ public class RoadSlot : MonoBehaviour
     public Material def;
     int layerMask = 1 << 6;
 
-
-
-   
     public void BuildRoad()
     {
         GetComponent<Renderer>().material = roadMat;
