@@ -9,9 +9,12 @@ public enum TileSize
     TwoFloors,
     ThreeFloors
 }
+
 [ExecuteInEditMode]
 public class Tile : MonoBehaviour
 {
+    public float row;
+    public float column;
     public TileSize size;
     public GameObject Tileprefab;
     private List<GameObject> tiles = new List<GameObject>();
