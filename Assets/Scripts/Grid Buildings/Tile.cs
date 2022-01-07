@@ -79,4 +79,13 @@ public class Tile : MonoBehaviour
         }
         BuildFloors();
     }
+
+    private void OnMouseEnter()
+    {
+        GetComponent<Renderer>().material.color = Color.green;
+    }
+    private void OnMouseExit()
+    {
+        GetComponent<Renderer>().material.color = Color.white;
+    }
 }
