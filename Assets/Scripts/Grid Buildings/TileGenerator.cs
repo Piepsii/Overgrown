@@ -63,7 +63,5 @@ public class TileGenerator : MonoBehaviour
         var type = assembly.GetType("UnityEditor.LogEntries");
         var method = type.GetMethod("Clear");
         method.Invoke(new object(), null);
-    }
-
-    
+    }   
 }

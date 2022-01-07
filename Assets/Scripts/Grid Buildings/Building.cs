@@ -47,7 +47,7 @@ public class Building : MonoBehaviour
         }
     }
 
-    void DeleteFloors()
+    public void DeleteFloors()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

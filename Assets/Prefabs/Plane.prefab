@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3459655906798104035}
   - component: {fileID: 4221786766525396415}
   - component: {fileID: 1283304463736698419}
+  - component: {fileID: 4816921417534718272}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -111,6 +112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4816921417534718272
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404338868633158878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &517844741960780434
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +138,7 @@ GameObject:
   - component: {fileID: 3313033549355792649}
   - component: {fileID: 2346222110801578527}
   - component: {fileID: 5325734500171166346}
+  - component: {fileID: 1796671759389984907}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -222,6 +237,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &1796671759389984907
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517844741960780434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &640725123174283213
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +263,7 @@ GameObject:
   - component: {fileID: 5927806637229863004}
   - component: {fileID: 1118341977422446581}
   - component: {fileID: 2433642435319945106}
+  - component: {fileID: 5744041825978062623}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -333,6 +362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &5744041825978062623
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640725123174283213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1064435495927086151
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +388,7 @@ GameObject:
   - component: {fileID: 2280915538222709103}
   - component: {fileID: 1426432925861217166}
   - component: {fileID: 7342724033707159752}
+  - component: {fileID: 8039995439348853346}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -444,6 +487,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &8039995439348853346
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064435495927086151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1193192251312475994
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,6 +513,7 @@ GameObject:
   - component: {fileID: 1893923989367061979}
   - component: {fileID: 5469829181167626019}
   - component: {fileID: 3681417260361287778}
+  - component: {fileID: 227920728193844456}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -555,6 +612,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &227920728193844456
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193192251312475994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1424875729437544605
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,6 +638,7 @@ GameObject:
   - component: {fileID: 2677961887426921068}
   - component: {fileID: 1766765745034034491}
   - component: {fileID: 8037418438861521987}
+  - component: {fileID: 5717215945237103136}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -666,6 +737,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &5717215945237103136
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424875729437544605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2591369210972794553
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +763,7 @@ GameObject:
   - component: {fileID: 1470705223142439458}
   - component: {fileID: 1551859337168186994}
   - component: {fileID: 470589215883711230}
+  - component: {fileID: 1932791615045889417}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -777,6 +862,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &1932791615045889417
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591369210972794553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2744263812325027976
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +888,7 @@ GameObject:
   - component: {fileID: 3174754214582877410}
   - component: {fileID: 459304172211032730}
   - component: {fileID: 6330454485473765669}
+  - component: {fileID: 8660721204744697774}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -888,6 +987,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &8660721204744697774
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744263812325027976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2766079804802337204
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +1013,7 @@ GameObject:
   - component: {fileID: 6884165061899425620}
   - component: {fileID: 3807891236702802141}
   - component: {fileID: 1035318166964803531}
+  - component: {fileID: 6031850953170385384}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -999,6 +1112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &6031850953170385384
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766079804802337204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2800702651653919916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1138,7 @@ GameObject:
   - component: {fileID: 4931198268943443859}
   - component: {fileID: 6669544323178099579}
   - component: {fileID: 1839491625899186943}
+  - component: {fileID: 1280914977167498102}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1110,6 +1237,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &1280914977167498102
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800702651653919916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2979035325355891971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1263,7 @@ GameObject:
   - component: {fileID: 545172625462649895}
   - component: {fileID: 4059347627860441174}
   - component: {fileID: 242960986883957034}
+  - component: {fileID: 8234524535167857348}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1221,6 +1362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &8234524535167857348
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979035325355891971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3578848045999718190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1388,7 @@ GameObject:
   - component: {fileID: 3884479621384884195}
   - component: {fileID: 8933697897056565894}
   - component: {fileID: 7072600660061301667}
+  - component: {fileID: 4031721168832676998}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1332,6 +1487,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4031721168832676998
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578848045999718190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3725546911472686454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1513,7 @@ GameObject:
   - component: {fileID: 4180769819705821725}
   - component: {fileID: 3223207627067987283}
   - component: {fileID: 7097719540637825470}
+  - component: {fileID: 4184976188533401180}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1443,6 +1612,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4184976188533401180
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725546911472686454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3950454000706475551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1638,7 @@ GameObject:
   - component: {fileID: 7388773584564713064}
   - component: {fileID: 7924902003176404711}
   - component: {fileID: 8985310947570868987}
+  - component: {fileID: 305066923690282745}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1554,6 +1737,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &305066923690282745
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950454000706475551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4327708096822100911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1763,7 @@ GameObject:
   - component: {fileID: 6126850357361948204}
   - component: {fileID: 3078739445329310938}
   - component: {fileID: 5782017197983870972}
+  - component: {fileID: 8277790252936003562}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1665,6 +1862,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &8277790252936003562
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327708096822100911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4333636024559627430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1888,7 @@ GameObject:
   - component: {fileID: 2074173917080108072}
   - component: {fileID: 848978058309467453}
   - component: {fileID: 1738616005835170011}
+  - component: {fileID: 7534187374974422988}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1776,6 +1987,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7534187374974422988
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4333636024559627430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4705802691226389145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +2013,7 @@ GameObject:
   - component: {fileID: 3757339134294753025}
   - component: {fileID: 5717035710027048419}
   - component: {fileID: 4202998020264709074}
+  - component: {fileID: 4699954663058467788}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1887,6 +2112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4699954663058467788
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705802691226389145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4937876888275932200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +2138,7 @@ GameObject:
   - component: {fileID: 7855445775349322829}
   - component: {fileID: 1002812785553845949}
   - component: {fileID: 2293093273691648997}
+  - component: {fileID: 530682033070509688}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -1998,6 +2237,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &530682033070509688
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937876888275932200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5137851449437309168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2263,7 @@ GameObject:
   - component: {fileID: 1491350952797172756}
   - component: {fileID: 1701657554567124998}
   - component: {fileID: 3701753704320781770}
+  - component: {fileID: 7751326665371978890}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2109,6 +2362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7751326665371978890
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137851449437309168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5174759172280168746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2388,7 @@ GameObject:
   - component: {fileID: 8793678074944844539}
   - component: {fileID: 2085397892035645510}
   - component: {fileID: 5424252632942174014}
+  - component: {fileID: 196461020202384849}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2220,6 +2487,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &196461020202384849
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174759172280168746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5433674862142219660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,6 +2513,7 @@ GameObject:
   - component: {fileID: 747064466941464305}
   - component: {fileID: 1682132871034719669}
   - component: {fileID: 7635206119564563210}
+  - component: {fileID: 7165256398226800072}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2331,6 +2612,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7165256398226800072
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5433674862142219660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5467306209500353948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2638,7 @@ GameObject:
   - component: {fileID: 273072090846745911}
   - component: {fileID: 7378076635308901300}
   - component: {fileID: 4541437504897667171}
+  - component: {fileID: 4360208018063214191}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2442,6 +2737,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4360208018063214191
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467306209500353948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5646168687422925965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2763,7 @@ GameObject:
   - component: {fileID: 3919975820313155730}
   - component: {fileID: 7234357951223458527}
   - component: {fileID: 3908849675848285708}
+  - component: {fileID: 7407651937130783232}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2553,6 +2862,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7407651937130783232
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646168687422925965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5680547860502217632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,6 +2888,7 @@ GameObject:
   - component: {fileID: 5778546620605501814}
   - component: {fileID: 3804440287390300678}
   - component: {fileID: 564270607624381069}
+  - component: {fileID: 1097370887959347263}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2664,6 +2987,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &1097370887959347263
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680547860502217632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5766119381241163338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +3013,7 @@ GameObject:
   - component: {fileID: 7512730852930110044}
   - component: {fileID: 3350210430066665210}
   - component: {fileID: 3636531472993954987}
+  - component: {fileID: 5319301759238579676}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2775,6 +3112,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &5319301759238579676
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766119381241163338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5788623916543415746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +3138,7 @@ GameObject:
   - component: {fileID: 1197971275370204308}
   - component: {fileID: 2637918573205295594}
   - component: {fileID: 6816875956917058427}
+  - component: {fileID: 6715157464378951447}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2886,6 +3237,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &6715157464378951447
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788623916543415746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5854246165947529191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +3263,7 @@ GameObject:
   - component: {fileID: 6813230439655406465}
   - component: {fileID: 7835907112000996265}
   - component: {fileID: 5393467620666367248}
+  - component: {fileID: 8285156967876904694}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -2997,6 +3362,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &8285156967876904694
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854246165947529191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5854969757032070063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,6 +3388,7 @@ GameObject:
   - component: {fileID: 389228357374078669}
   - component: {fileID: 7033619011115175532}
   - component: {fileID: 2425296991341698109}
+  - component: {fileID: 527496372957429053}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3108,6 +3487,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &527496372957429053
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854969757032070063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6856205858896306091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3660,7 @@ GameObject:
   - component: {fileID: 4610787129431983960}
   - component: {fileID: 9049293587745724767}
   - component: {fileID: 8978828450997598827}
+  - component: {fileID: 4981620482441047438}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3366,6 +3759,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &4981620482441047438
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944735537846768008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6964263045468335261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3785,7 @@ GameObject:
   - component: {fileID: 7516433590366623066}
   - component: {fileID: 1885813930783858500}
   - component: {fileID: 5000387935194761382}
+  - component: {fileID: 3617846978800524667}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3477,6 +3884,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &3617846978800524667
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964263045468335261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7645914145558165992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,6 +3910,7 @@ GameObject:
   - component: {fileID: 6274950316854642416}
   - component: {fileID: 1975329904429906774}
   - component: {fileID: 7852710589640612548}
+  - component: {fileID: 7495103326574978715}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3588,6 +4009,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7495103326574978715
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7645914145558165992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7659603908504677435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +4035,7 @@ GameObject:
   - component: {fileID: 4385774293540611301}
   - component: {fileID: 6306758358194032868}
   - component: {fileID: 4600670205405718079}
+  - component: {fileID: 6867686445773607767}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3699,6 +4134,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &6867686445773607767
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659603908504677435}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8211096611670563367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3712,6 +4160,7 @@ GameObject:
   - component: {fileID: 6774388184527211104}
   - component: {fileID: 8941678597064721785}
   - component: {fileID: 2470787571324846229}
+  - component: {fileID: 5320710141734134627}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3810,6 +4259,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &5320710141734134627
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211096611670563367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8260083153335870622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,6 +4285,7 @@ GameObject:
   - component: {fileID: 3892491386425229559}
   - component: {fileID: 5432962720927432114}
   - component: {fileID: 5982551730568039157}
+  - component: {fileID: 2374611191781375955}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -3921,6 +4384,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &2374611191781375955
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260083153335870622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8376227277530526352
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +4410,7 @@ GameObject:
   - component: {fileID: 838219356776189134}
   - component: {fileID: 6787936665733113891}
   - component: {fileID: 8239972806274750245}
+  - component: {fileID: 7279465121033525133}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -4032,6 +4509,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &7279465121033525133
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376227277530526352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9113002192795116240
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,6 +4535,7 @@ GameObject:
   - component: {fileID: 4645368591470549898}
   - component: {fileID: 8710650024228589127}
   - component: {fileID: 3836752519943350448}
+  - component: {fileID: 5195421283208996770}
   m_Layer: 6
   m_Name: Road Slots
   m_TagString: Untagged
@@ -4143,3 +4634,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMat: {fileID: 2100000, guid: 5eb0799b742b2f14b964d14b8ac60994, type: 2}
   def: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!135 &5195421283208996770
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113002192795116240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.15
+  m_Center: {x: 0, y: 0, z: 0}

@@ -9,15 +9,9 @@ public class RoadSlot : MonoBehaviour
     public Material def;
     int layerMask = 1 << 6;
 
-    public void Check()
-    {
-        RaycastHit hit;
-        if (Physics.CheckSphere(transform.position, 5))
-        {
-            
-        }
-    }
 
+
+   
     public void BuildRoad()
     {
         GetComponent<Renderer>().material = roadMat;
@@ -27,4 +21,6 @@ public class RoadSlot : MonoBehaviour
     {
         GetComponent<Renderer>().material = def;
     }
+
+    
 }

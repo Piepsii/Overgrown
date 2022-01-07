@@ -16,5 +16,10 @@ public class FloorBuilderButton : Editor
             Debug.ClearDeveloperConsole();
             myScript.BuildFloors();
         }
+        if (GUILayout.Button("ResetFloors"))
+        {
+            Debug.ClearDeveloperConsole();
+            myScript.DeleteFloors();
+        }
     }
 }
