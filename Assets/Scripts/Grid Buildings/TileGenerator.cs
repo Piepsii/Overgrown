@@ -37,14 +37,6 @@ public class TileGenerator : MonoBehaviour
 
                 gridtile.GetComponent<Tile>().row = k + 1;
                 gridtile.GetComponent<Tile>().column = i + 1;
-
-                foreach(Transform tr in gridtile.transform.GetChild(0)) //To be changed
-                {
-                    if(tr.GetComponent<RoadSlot>())
-                    {
-                        tr.GetComponent<RoadSlot>().BuildRoad();
-                    }
-                }
             }
         }
     }

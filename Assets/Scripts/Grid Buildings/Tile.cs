@@ -19,6 +19,8 @@ public class Tile : MonoBehaviour
     public GameObject Tileprefab;
     private List<GameObject> tiles = new List<GameObject>();
 
+    private bool _checked;
+
     public void BuildFloors()
     {
         if (size == TileSize.None)
@@ -82,10 +84,31 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        GetComponent<Renderer>().material.color = Color.green;
+        if (!_checked)
+        {
+            GetComponent<Renderer>().material.color = Color.green;
+        }
     }
     private void OnMouseExit()
     {
-        GetComponent<Renderer>().material.color = Color.white;
+        if (!_checked)
+        {
+            GetComponent<Renderer>().material.color = Color.white;
+        }
+
+    }
+
+
+    private void OnMouseDown()
+    {
+        _checked = true;
+        if(_checked)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+        } 
+        else
+        {
+            GetComponent<Renderer>().material.color = Color.white;
+        }
     }
 }
