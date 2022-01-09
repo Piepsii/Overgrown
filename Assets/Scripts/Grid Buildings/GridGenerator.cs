@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Reflection;
 
 [ExecuteInEditMode]
-public class TileGenerator : MonoBehaviour
+public class GridGenerator : MonoBehaviour
 {
     public GameObject prefab;
     public int columns;

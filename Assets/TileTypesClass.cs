@@ -9,7 +9,7 @@ public enum TileTypes
     Type3
 
 }
-public class TileType : MonoBehaviour
+public class TileTypesClass : MonoBehaviour //might not be needed
 {
     public TileTypes type;
 }

@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(TileGenerator))]
-public class TileGeneratorButtonScript : Editor
+[CustomEditor(typeof(GridGenerator))]
+public class GridGeneratorButtonsScript : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        TileGenerator myScript = (TileGenerator)target;
+        GridGenerator myScript = (GridGenerator)target;
         if(GUILayout.Button("BuildGrid"))
         {
             Debug.ClearDeveloperConsole();

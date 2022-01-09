@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileSize
+public enum TileType
 {
     None,
     OneFloor,
@@ -15,26 +15,26 @@ public class Tile : MonoBehaviour
 {
     public float row;
     public float column;
-    public TileSize size;
+    public TileType type;
     public GameObject Tileprefab;
     private List<GameObject> tiles = new List<GameObject>();
 
     private bool _checked;
 
-    public void BuildFloors()
+    public void BuildFloors() //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
-        if (size == TileSize.None)
+        if (type == TileType.None)
         {
             DeleteFloors();
         }
-        if (size == TileSize.OneFloor)
+        if (type == TileType.OneFloor)
         {
             DeleteFloors();
             GameObject go = Instantiate(Tileprefab, transform);
             go.transform.position = transform.position + Vector3.up * 1.75f;
             tiles.Add(go);
         }
-        else if (size == TileSize.TwoFloors)
+        else if (type == TileType.TwoFloors)
         {
             DeleteFloors();
             for (int i = 0; i < 2; i++)
@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour
                 tiles.Add(go);
             }
         }
-        else if (size == TileSize.ThreeFloors)
+        else if (type == TileType.ThreeFloors)
         {
             DeleteFloors();
             for (int i = 0; i < 3; i++)
@@ -69,15 +69,15 @@ public class Tile : MonoBehaviour
     {
         if (num == 0)
         {
-            size = TileSize.OneFloor;
+            type = TileType.OneFloor;
         }
         else if (num == 1)
         {
-            size = TileSize.TwoFloors;
+            type = TileType.TwoFloors;
         }
         else
         {
-            size = TileSize.ThreeFloors;
+            type = TileType.ThreeFloors;
         }
         BuildFloors();
     }
@@ -101,15 +101,27 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(!_checked)
+        if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<Renderer>().material.color = Color.red;
-            _checked = true;
+            if (!_checked)
+            {
+                GetComponent<Renderer>().material.color = Color.black;
+                _checked = true;
 
+            }
+            else
+            {
+                GetComponent<Renderer>().material.color = Color.white;
+                _checked = false;
+            }
         }
-        else
+        
+        if (Input.GetMouseButtonDown(2))
         {
-            GetComponent<Renderer>().material.color = Color.white;
+            if (!_checked)
+            {
+                GetComponent<Renderer>().material.color = Color.red;
+            }
         }
     }
 }
