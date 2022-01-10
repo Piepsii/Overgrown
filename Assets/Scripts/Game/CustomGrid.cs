@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-[ExecuteInEditMode]
-public class TileGenerator : MonoBehaviour
+public class CustomGrid : MonoBehaviour
 {
     public GameObject prefab;
     public int columns;
     public int rows;
-    private List<GameObject> buildings = new List<GameObject>();
 
     public void CreateGrid()
     {
@@ -33,8 +31,11 @@ public class TileGenerator : MonoBehaviour
             {
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z + (i * 10) + 5);
-                gridtile.name = (1 + k).ToString() + "x" + (1 + i).ToString();
-                gridtile.GetComponent<Building>().GenerateBuilding(Random.Range(0, 2));
+                gridtile.name = "Tile " + (1 + k).ToString() + "x" + (1 + i).ToString();
+                gridtile.GetComponent<Tile>().GenerateTile(Random.Range(0, 2));
+
+                gridtile.GetComponent<Tile>().row = k + 1;
+                gridtile.GetComponent<Tile>().column = i + 1; //private, check constructor
             }
         }
     }
@@ -42,7 +43,7 @@ public class TileGenerator : MonoBehaviour
     public void DeleteGrid()
     {
         ClearConsole();
-        while (transform.childCount > 0)
+        while (transform.childCount > 0) //make it for
         {
             foreach (Transform child in transform)
             {
@@ -59,5 +60,25 @@ public class TileGenerator : MonoBehaviour
         method.Invoke(new object(), null);
     }
 
-    
+
 }
+
+
+/*
+int total = percentage of the total amount of tiles needed 
+
+for loop
+
+randomly choose if a tile will be on or off
+++count
+
+if count > total stop
+
+row check
+goes through each row
+
+checks if a tile is on or off, if on count++ then check next, if not print count reset check next repeat
+
+column check same as above
+
+ */

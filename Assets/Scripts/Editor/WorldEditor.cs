@@ -1,21 +1,20 @@
-using System.Collections;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 
-[CustomEditor(typeof(TileGenerator))]
-public class TileGeneratorButtonScript : Editor
+[CustomEditor(typeof(CustomGrid))]
+public class WorldEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        TileGenerator myScript = (TileGenerator)target;
-        if(GUILayout.Button("BuildGrid"))
+        CustomGrid myScript = (CustomGrid)target;
+        if (GUILayout.Button("BuildGrid"))
         {
             Debug.ClearDeveloperConsole();
             myScript.CreateGrid();
         }
-        if(GUILayout.Button("DeleteGrid"))
+        if (GUILayout.Button("DeleteGrid"))
         {
             Debug.ClearDeveloperConsole();
             myScript.DeleteGrid();
