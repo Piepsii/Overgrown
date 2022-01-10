@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-public class Grid : MonoBehaviour
+public class CustomGrid : MonoBehaviour
 {
     public GameObject prefab;
     public int columns;
