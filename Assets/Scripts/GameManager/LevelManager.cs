@@ -7,6 +7,14 @@ namespace Overgrown.GameManager
         public GameObject levelPrefab;
         public Level activeLevel;
 
+        private void Start()
+        {
+            if (GameManager.Instance.LevelManager == null)
+            {
+                GameManager.Instance.LevelManager = this;
+            }
+        }
+
         private bool CreateLevel()
         {
             if (levelPrefab)

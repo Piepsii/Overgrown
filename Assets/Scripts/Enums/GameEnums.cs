@@ -7,5 +7,12 @@ namespace Overgrown.GameEnums
         Game,
         GameOver
     }
+
+    public enum ScreenState
+    {
+        GameStart,
+        Game,
+        GameOver
+    }
 }
 

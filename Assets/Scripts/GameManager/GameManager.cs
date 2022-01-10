@@ -17,6 +17,7 @@ namespace Overgrown.GameManager
         private SceneManager sceneManager;
         private LevelManager levelManager;
         private AudioManager audioManager;
+        private UIManager uIManager;
         private Config config;
 
         public string SceneToLoad { get => sceneToLoad; }
@@ -27,10 +28,26 @@ namespace Overgrown.GameManager
         public SceneManager SceneController { get => sceneManager; set => sceneManager = value; }
         public LevelManager LevelManager { get => levelManager; set => levelManager = value; }
         public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
+        public UIManager UIManager { get => uIManager; set => uIManager = value; }
         public Config Config { get => config; set => config = value;}
 
+        public void SetStateToGameStart()
+        {
+            gameState = GameState.GameStart;
+        }
 
-        [RuntimeInitializeOnLoadMethod]
+        public void SetStateToGame()
+        {
+            gameState = GameState.Game;
+        }
+
+        public void SetStateToGameOver()
+        {
+            gameState = GameState.GameOver;
+        }
+
+
+    [RuntimeInitializeOnLoadMethod]
         private static void Initialize()
         {
             GameObject prefab = GameObject.Instantiate(Resources.Load("GameManager")) as GameObject;
