@@ -1,24 +1,24 @@
-using System.Collections;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 
-[CustomEditor(typeof(GridGenerator))]
-public class GridGeneratorButtonsScript : Editor
+[CustomEditor(typeof(Grid))]
+public class WorldEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        GridGenerator myScript = (GridGenerator)target;
-        if(GUILayout.Button("BuildGrid"))
+        Grid myScript = (Grid)target;
+        if (GUILayout.Button("BuildGrid"))
         {
             Debug.ClearDeveloperConsole();
             myScript.CreateGrid();
         }
-        if(GUILayout.Button("DeleteGrid"))
+        if (GUILayout.Button("DeleteGrid"))
         {
             Debug.ClearDeveloperConsole();
             myScript.DeleteGrid();
         }
     }
 }
+

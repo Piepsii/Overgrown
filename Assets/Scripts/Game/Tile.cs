@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
         {
             DeleteFloors();
         }
-        if (type == TileType.OneFloor)
+        else if(type == TileType.OneFloor)
         {
             DeleteFloors();
             GameObject go = Instantiate(Tileprefab, transform);

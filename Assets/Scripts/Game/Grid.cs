@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-[ExecuteInEditMode]
-public class GridGenerator : MonoBehaviour
+public class Grid : MonoBehaviour
 {
     public GameObject prefab;
     public int columns;
@@ -36,7 +35,7 @@ public class GridGenerator : MonoBehaviour
                 gridtile.GetComponent<Tile>().GenerateTile(Random.Range(0, 2));
 
                 gridtile.GetComponent<Tile>().row = k + 1;
-                gridtile.GetComponent<Tile>().column = i + 1;
+                gridtile.GetComponent<Tile>().column = i + 1; //private, check constructor
             }
         }
     }
@@ -44,7 +43,7 @@ public class GridGenerator : MonoBehaviour
     public void DeleteGrid()
     {
         ClearConsole();
-        while (transform.childCount > 0)
+        while (transform.childCount > 0) //make it for
         {
             foreach (Transform child in transform)
             {
@@ -62,7 +61,6 @@ public class GridGenerator : MonoBehaviour
     }
 
 
-    
 }
 
 
