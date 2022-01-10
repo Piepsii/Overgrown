@@ -3,7 +3,7 @@
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-Logs/
+[Ll]ogs/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
@@ -40,5 +40,3 @@ sysinfo.txt
 Assets/Scripts/Grid Buildings/New Material 1.mat
 
 Assets/Scripts/Grid Buildings/New Material 1.mat.meta
-
-Logs/
