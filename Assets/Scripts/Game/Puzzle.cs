@@ -6,7 +6,7 @@ public class Puzzle : MonoBehaviour
 {
     private int width, height;
     private Cell[] cells;
-    bool[] solution;
+    private bool[] solution;
     private int percentage;
     private bool solved;
 
