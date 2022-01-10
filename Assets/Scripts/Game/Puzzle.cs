@@ -53,27 +53,3 @@ public class Puzzle : MonoBehaviour
         return solution;
     }
 }
-
-
-
-/*
-int total = percentage of the total amount of tiles needed 
-
-for loop
-
-randomly choose if a tile will be on or off
-++count
-
-if count > total stop
-
-row check
-goes through each row
-
-checks if a tile is on or off, if on count++ then check next, if not print count reset check next repeat
-
-column check same as above
-
-int arr
-
- */
-
