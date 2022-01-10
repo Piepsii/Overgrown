@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Grid))]
+[CustomEditor(typeof(CustomGrid))]
 public class WorldEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        Grid myScript = (Grid)target;
+        CustomGrid myScript = (CustomGrid)target;
         if (GUILayout.Button("BuildGrid"))
         {
             Debug.ClearDeveloperConsole();
