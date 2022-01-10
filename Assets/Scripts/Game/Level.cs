@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Overgrown.Utility;
 
 public class Level : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int index = 0;
+
+    private float timeAtStart;
+    private bool won;
+    private World world;
+    private Puzzle puzzle;
+
+    VoidEventChannelSO OnLevelStart;
+    VoidEventChannelSO OnLevelEnd;
+
+    private void Awake()
+    {
+        timeAtStart = Time.time;
+        won = false;
+    }
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (puzzle.Solved)
+        {
+            won = true;
+        }
+    }
+
+    public int GetWidth()
+    {
+        return puzzle.Width;
+    }
+
+    public int GetHeight()
+    {
+        return puzzle.Height;
+    }
+
+    private float CalculateTime()
+    {
+        return Time.time - timeAtStart;
     }
 }
