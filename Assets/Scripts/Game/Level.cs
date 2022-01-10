@@ -28,7 +28,7 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        if (puzzle.solved)
+        if (puzzle.Solved)
         {
             won = true;
         }
@@ -36,12 +36,12 @@ public class Level : MonoBehaviour
 
     public int GetWidth()
     {
-        return puzzle.width;
+        return puzzle.Width;
     }
 
     public int GetHeight()
     {
-        return puzzle.height;
+        return puzzle.Height;
     }
 
     private float CalculateTime()
