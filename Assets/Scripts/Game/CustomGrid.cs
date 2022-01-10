@@ -6,7 +6,7 @@ using System.Reflection;
 public class CustomGrid : MonoBehaviour
 {
     public GameObject prefab;
-    public int columns;
+    public int columns; //For now public in order to access those in the inspector
     public int rows;
 
     public void CreateGrid()
@@ -30,12 +30,11 @@ public class CustomGrid : MonoBehaviour
             for (int k = 0; k < columns; k++)
             {
                 GameObject gridtile = Instantiate(prefab, transform);
-                gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z + (i * 10) + 5);
-                gridtile.name = "Tile " + (1 + k).ToString() + "x" + (1 + i).ToString();
+                gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5);
+                gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
                 gridtile.GetComponent<Tile>().GenerateTile(Random.Range(0, 2));
 
-                gridtile.GetComponent<Tile>().row = k + 1;
-                gridtile.GetComponent<Tile>().column = i + 1; //private, check constructor
+                SetRowsColumns(k + 1, i + 1);
             }
         }
     }
@@ -43,12 +42,9 @@ public class CustomGrid : MonoBehaviour
     public void DeleteGrid()
     {
         ClearConsole();
-        while (transform.childCount > 0) //make it for
+        for(int i = 0; i < transform.childCount;)
         {
-            foreach (Transform child in transform)
-            {
-                DestroyImmediate(child.gameObject);
-            }
+            DestroyImmediate(transform.GetChild(i).gameObject);
         }
     }
 
@@ -60,7 +56,11 @@ public class CustomGrid : MonoBehaviour
         method.Invoke(new object(), null);
     }
 
-
+    public void SetRowsColumns(int _rows, int _columns)
+    {
+        rows = _rows;
+        columns = _columns;
+    }
 }
 
 
@@ -80,5 +80,7 @@ goes through each row
 checks if a tile is on or off, if on count++ then check next, if not print count reset check next repeat
 
 column check same as above
+
+int arr
 
  */

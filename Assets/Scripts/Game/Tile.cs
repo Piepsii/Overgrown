@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
         {
             DeleteFloors();
         }
-        else if(type == TileType.OneFloor)
+        else if (type == TileType.OneFloor)
         {
             DeleteFloors();
             GameObject go = Instantiate(Tileprefab, transform);
@@ -82,6 +82,7 @@ public class Tile : MonoBehaviour
         BuildFloors();
     }
 
+    //Input Related Methods to be removed
     private void OnMouseEnter()
     {
         if (!_checked)
@@ -97,8 +98,6 @@ public class Tile : MonoBehaviour
         }
 
     }
-
-
     private void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0))
