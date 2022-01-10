@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GameEnums : MonoBehaviour
+namespace Overgrown.GameEnums
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum CellState
     {
-        
+        Empty,
+        Filled,
+        Crossed
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
