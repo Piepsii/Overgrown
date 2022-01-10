@@ -1,11 +1,15 @@
 using UnityEngine;
+using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
 {
     public class GameManager : MonoBehaviour
     {
+        public GameState gameState = GameState.GameStart;
+
         [SerializeField]
         private string sceneToLoad;
+
 
         private static GameManager gameManager;
         private TimeManager timeManager;
