@@ -2,59 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileType
-{
-    None,
-    OneFloor,
-    TwoFloors,
-    ThreeFloors
-}
-
 [ExecuteInEditMode]
 public class Tile : MonoBehaviour
 {
-    public float row;
-    public float column;
-    public TileType type;
+    private int tile_row;
+    private int tile_column;
+    private int unique_ID;
+
     public List<GameObject> Tileprefab = new List<GameObject>();
+
     private List<GameObject> tiles = new List<GameObject>();
 
     private bool _checked;
 
-    public void BuildFloors() //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
+    public void BuildBuilding() //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
-
-        DeleteFloors();
         GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
         go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
         tiles.Add(go);
-
     }
 
-    public void DeleteFloors()
+    public void SetTileRowColumn(int _row, int _column)
     {
-        for (int i = 0; i < tiles.Count; i++)
-        {
-            DestroyImmediate(tiles[i].gameObject);
-        }
-        tiles.Clear();
+        tile_row = _row;
+        tile_column = _column;
     }
 
-    public void GenerateTile(int num)
+    public void SetID(int _ID)
     {
-        if (num == 0)
-        {
-            type = TileType.OneFloor;
-        }
-        else if (num == 1)
-        {
-            type = TileType.TwoFloors;
-        }
-        else
-        {
-            type = TileType.ThreeFloors;
-        }
-        BuildFloors();
+        unique_ID = _ID;
     }
 
     //Input Related Methods to be removed

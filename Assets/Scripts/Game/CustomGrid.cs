@@ -6,8 +6,8 @@ using System.Reflection;
 public class CustomGrid : MonoBehaviour
 {
     public GameObject prefab;
-    public int columns; //For now public in order to access those in the inspector
-    public int rows;
+    public int grid_columns; //For now public in order to access those in the inspector
+    public int grid_rows;
 
     public void CreateGrid()
     {
@@ -18,7 +18,7 @@ public class CustomGrid : MonoBehaviour
         else
         {
             ClearConsole();
-            GenerateGrid(rows, columns);
+            GenerateGrid(grid_rows, grid_columns);
         }
     }
 
@@ -32,9 +32,9 @@ public class CustomGrid : MonoBehaviour
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5);
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
-                gridtile.GetComponent<Tile>().GenerateTile(Random.Range(0, 2));
-
-                SetRowsColumns(k + 1, i + 1);
+                gridtile.GetComponent<Tile>().BuildBuilding();
+                gridtile.GetComponent<Tile>().SetTileRowColumn(k + 1, i + 1);
+                gridtile.GetComponent<Tile>().SetID(k + i * 10);
             }
         }
     }
@@ -58,8 +58,8 @@ public class CustomGrid : MonoBehaviour
 
     public void SetRowsColumns(int _rows, int _columns)
     {
-        rows = _rows;
-        columns = _columns;
+        grid_rows = _rows;
+        grid_columns = _columns;
     }
 }
 
