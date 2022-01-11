@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class PuzzleEditor : MonoBehaviour
+[CustomEditor(typeof(Puzzle))]
+public class PuzzleEditor : Editor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnInspectorGUI()
     {
-        
-    }
+        DrawDefaultInspector();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Puzzle myScript = (Puzzle)target;
+        if (GUILayout.Button("New Puzzle"))
+        {
+            Debug.ClearDeveloperConsole();
+            myScript.NewPuzzle();
+        }
     }
 }

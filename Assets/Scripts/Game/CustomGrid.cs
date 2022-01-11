@@ -34,6 +34,7 @@ public class CustomGrid : MonoBehaviour
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
                 gridtile.GetComponent<Tile>().BuildBuilding();
                 gridtile.GetComponent<Tile>().SetTileRowColumn(k + 1, i + 1);
+                gridtile.GetComponent<Tile>().SetID(k + i * 10);
             }
         }
     }

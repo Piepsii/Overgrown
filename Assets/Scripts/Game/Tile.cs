@@ -5,10 +5,12 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Tile : MonoBehaviour
 {
-    private float tile_row;
-    private float tile_column;
+    private int tile_row;
+    private int tile_column;
+    private int unique_ID;
 
     public List<GameObject> Tileprefab = new List<GameObject>();
+
     private List<GameObject> tiles = new List<GameObject>();
 
     private bool _checked;
@@ -24,6 +26,11 @@ public class Tile : MonoBehaviour
     {
         tile_row = _row;
         tile_column = _column;
+    }
+
+    public void SetID(int _ID)
+    {
+        unique_ID = _ID;
     }
 
     //Input Related Methods to be removed
