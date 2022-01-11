@@ -15,6 +15,7 @@ public class Puzzle : MonoBehaviour
     public int Width { get; }
     public int Height { get; }
 
+
     private void Update()
     {
        
@@ -31,7 +32,7 @@ public class Puzzle : MonoBehaviour
     {
         for(int i = 0; i < cells.Length; i++)
         {
-            if (cells[i]._cellState == Overgrown.GameEnums.CellState.Filled && solution[i])
+            if (cells[i]._cellState == Overgrown.GameEnums.CellState.Filled && solution[i] || cells[i]._cellState == Overgrown.GameEnums.CellState.Empty && !solution[i])
             {
                 continue;
             }
