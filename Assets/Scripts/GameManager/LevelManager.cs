@@ -1,4 +1,5 @@
 using UnityEngine;
+using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
 {
@@ -13,6 +14,16 @@ namespace Overgrown.GameManager
             {
                 GameManager.Instance.LevelManager = this;
             }
+        }
+
+        public void ToggleCellState(Vector3 position)
+        {
+
+        }
+
+        public void CrossCell(Vector3 position)
+        {
+
         }
 
         private bool CreateLevel()

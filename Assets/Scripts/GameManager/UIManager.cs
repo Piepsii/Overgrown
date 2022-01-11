@@ -33,6 +33,34 @@ namespace Overgrown.GameManager
             gameScreen.gameObject.SetActive(false);
             gameOverScreen.gameObject.SetActive(false);
         }
+
+        public void SwitchState(GameState state)
+        {
+            switch (state)
+            {
+                case GameState.GameStart:
+                    screenState = ScreenState.GameStart;
+                    gameStartScreen.gameObject.SetActive(true);
+                    gameScreen.gameObject.SetActive(false);
+                    gameOverScreen.gameObject.SetActive(false);
+
+                    break;
+                case GameState.Game:
+                    screenState = ScreenState.Game;
+                    gameStartScreen.gameObject.SetActive(false);
+                    gameScreen.gameObject.SetActive(true);
+                    gameOverScreen.gameObject.SetActive(false);
+
+                    break;
+                case GameState.GameOver:
+                    screenState = ScreenState.GameOver;
+                    gameStartScreen.gameObject.SetActive(false);
+                    gameScreen.gameObject.SetActive(false);
+                    gameOverScreen.gameObject.SetActive(true);
+
+                    break;
+            }
+        }
     }
 
 }

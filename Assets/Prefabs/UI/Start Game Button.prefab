@@ -120,19 +120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8216295465564373007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1346918261033289503, guid: 3701929009afaa14585c554df1a64242, type: 3}
-        m_TargetAssemblyTypeName: Overgrown.GameManager.GameManager, Assembly-CSharp
-        m_MethodName: SetStateToGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8216295465866802292
 GameObject:
   m_ObjectHideFlags: 0
