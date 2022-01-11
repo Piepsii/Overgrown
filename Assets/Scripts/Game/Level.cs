@@ -21,17 +21,17 @@ public class Level : MonoBehaviour
         won = false;
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if (puzzle.Solved)
         {
             won = true;
         }
+    }
+
+    public void ChangeCellState(Vector3 position)
+    {
+        puzzle.SwitchCellStateAt(position);
     }
 
     public int GetWidth()

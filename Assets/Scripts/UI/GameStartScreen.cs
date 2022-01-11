@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Overgrown.GameManager;
 
 public class GameStartScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Button button;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        button.onClick.AddListener(GameManager.Instance.SetStateToGame);
     }
 }
