@@ -9,6 +9,8 @@ public class Tile : MonoBehaviour
     private int tile_column;
     private int unique_ID;
 
+    bool clickable;
+
     public List<GameObject> Tileprefab = new List<GameObject>();
 
     private List<GameObject> tiles = new List<GameObject>();
@@ -39,6 +41,7 @@ public class Tile : MonoBehaviour
         if (!_checked)
         {
             GetComponent<Renderer>().material.color = Color.green;
+            clickable = true;
         }
     }
     private void OnMouseExit()
@@ -46,31 +49,35 @@ public class Tile : MonoBehaviour
         if (!_checked)
         {
             GetComponent<Renderer>().material.color = Color.white;
+            clickable = false;
         }
 
     }
-    private void OnMouseDown()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (clickable)
         {
-            if (!_checked)
+            if (Input.GetMouseButtonDown(0))
             {
-                GetComponent<Renderer>().material.color = Color.black;
-                _checked = true;
+                if (!_checked)
+                {
+                    GetComponent<Renderer>().material.color = Color.black;
+                    _checked = true;
 
+                }
+                else
+                {
+                    GetComponent<Renderer>().material.color = Color.white;
+                    _checked = false;
+                }
             }
-            else
-            {
-                GetComponent<Renderer>().material.color = Color.white;
-                _checked = false;
-            }
-        }
 
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (!_checked)
+            if (Input.GetMouseButtonDown(1))
             {
-                GetComponent<Renderer>().material.color = Color.red;
+                if (!_checked)
+                {
+                    GetComponent<Renderer>().material.color = Color.red;
+                }
             }
         }
     }

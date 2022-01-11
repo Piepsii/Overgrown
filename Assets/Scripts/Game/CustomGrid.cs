@@ -30,7 +30,7 @@ public class CustomGrid : MonoBehaviour
             for (int k = 0; k < columns; k++)
             {
                 GameObject gridtile = Instantiate(prefab, transform);
-                gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5);
+                gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5); //rotation
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
                 gridtile.GetComponent<Tile>().BuildBuilding();
                 gridtile.GetComponent<Tile>().SetTileRowColumn(k + 1, i + 1);
