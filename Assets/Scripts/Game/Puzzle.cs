@@ -66,4 +66,9 @@ public class Puzzle : MonoBehaviour
         width = _width;
         percentage = _percentage;
     }
+
+    public void SwitchCellStateAt(Vector3 position)
+    {
+
+    }
 }
