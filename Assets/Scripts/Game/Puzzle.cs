@@ -6,14 +6,15 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     private int width, height;
-    private Cell[] cells;
-    private bool[] solution;
+    private Overgrown.GameEnums.CellState[] _cellState;
+    private bool[] solution; //Editable
     private int percentage;
     private bool solved;
 
     public bool Solved { get; }
     public int Width { get; }
     public int Height { get; }
+
 
     private void Update()
     {
@@ -22,16 +23,15 @@ public class Puzzle : MonoBehaviour
 
     public void NewPuzzle()
     {
-        SetSize(10, 10);
-        percentage = 50;
+        SetSizePercentage(10, 10, 50);
         solution = Solution();
     }
 
     void CheckPuzzle()
     {
-        for(int i = 0; i < cells.Length; i++)
+        for(int i = 0; i < _cellState.Length; i++)
         {
-            if (cells[i]._cellState == Overgrown.GameEnums.CellState.Filled && solution[i])
+            if (_cellState[i] == Overgrown.GameEnums.CellState.Filled && solution[i] || _cellState[i] == Overgrown.GameEnums.CellState.Empty && !solution[i])
             {
                 continue;
             }
@@ -60,9 +60,15 @@ public class Puzzle : MonoBehaviour
         return new_solution;
     }
 
-    void SetSize(int _width, int _height)
+    void SetSizePercentage(int _width, int _height, int _percentage)
     {
         height = _height;
         width = _width;
+        percentage = _percentage;
+    }
+
+    public void SwitchCellStateAt(Vector3 position)
+    {
+
     }
 }
