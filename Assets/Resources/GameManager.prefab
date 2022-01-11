@@ -695,3 +695,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cde4396f10183c4eb469bc7f3448204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focus: {fileID: 0}
+  distance: 120
+  minDistance: 40
+  maxDistance: 160
+  rotationSpeed: 141
+  minVerticalAngle: 10
+  maxVerticalAngle: 80
