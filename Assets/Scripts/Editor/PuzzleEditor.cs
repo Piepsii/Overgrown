@@ -13,6 +13,14 @@ public class PuzzleEditor : Editor
         {
             Debug.ClearDeveloperConsole();
             myScript.NewPuzzle();
+
         }
+        if (GUILayout.Button("Print Clues"))
+        {
+            Debug.ClearDeveloperConsole();
+            myScript.PrintClues();
+        }
+
+        
     }
 }

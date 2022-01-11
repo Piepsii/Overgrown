@@ -7,29 +7,36 @@ public class Puzzle : MonoBehaviour
 {
     private int width, height;
     private Overgrown.GameEnums.CellState[] _cellState;
-    private bool[] solution; //Editable
+    [SerializeField]
+    public bool[] solution; //Editable
     private int percentage;
     private bool solved;
+
+    private List<int[]> cluesRows = new List<int[]>();
+    private List<int[]> cluesColumns = new List<int[]>();
 
     public bool Solved { get; }
     public int Width { get; }
     public int Height { get; }
 
-
     private void Update()
     {
-       
+
     }
 
     public void NewPuzzle()
     {
-        SetSizePercentage(10, 10, 50);
+        SetSizePercentage(5, 5, 15);
         solution = Solution();
+        cluesColumns.Clear();
+        cluesRows.Clear();
+        GenerateClues(5, 5);
+
     }
 
     void CheckPuzzle()
     {
-        for(int i = 0; i < _cellState.Length; i++)
+        for (int i = 0; i < _cellState.Length; i++)
         {
             if (_cellState[i] == Overgrown.GameEnums.CellState.Filled && solution[i] || _cellState[i] == Overgrown.GameEnums.CellState.Empty && !solution[i])
             {
@@ -42,9 +49,9 @@ public class Puzzle : MonoBehaviour
 
     bool[] Solution()
     {
-         bool[] new_solution = new bool[width * height];
+        bool[] new_solution = new bool[width * height];
 
-        for(int i = 0; i < percentage; i++)
+        for (int i = 0; i < percentage; i++)
         {
             new_solution[i] = true;
         }
@@ -71,4 +78,71 @@ public class Puzzle : MonoBehaviour
     {
 
     }
+
+    private void GenerateClues(int width, int height)
+    {
+        List<int> temp = new List<int>();
+        int count = 0;
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                if (solution[(i * height) + j])
+                {
+                    count++;
+                }
+                else if (count > 0)
+                {
+                    temp.Add(count);
+                    count = 0;
+                }
+            }
+
+            if (count > 0)
+            {
+                temp.Add(count);
+                count = 0;
+            }
+            cluesRows.Add(temp.ToArray());
+            temp.Clear();
+        }
+
+        for (int i = 0; i < height; i++)
+        {
+            if (count > 0)
+            {
+                temp.Add(count);
+                count = 0;
+            }
+
+            for (int j = 0; j < width; j++)
+            {
+                if (solution[i + (j * height)])
+                {
+                    count++;
+                }
+                else if (count > 0)
+                {
+                    temp.Add(count);
+                    count = 0;
+                }
+            }
+
+            if (count > 0)
+            {
+                temp.Add(count);
+                count = 0;
+            }
+            cluesColumns.Add(temp.ToArray());
+            temp.Clear();
+        }
+    }
+
+
+    public void PrintClues()
+    {
+        string result = string.Join(" ", cluesRows[0]);
+        Debug.Log(result);
+    }
+
 }
