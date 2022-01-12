@@ -11,6 +11,8 @@ public class World : MonoBehaviour
     [SerializeField]
     private int grid_rows;
 
+    private List<Tile> tiles = new List<Tile>();
+
     public void CreateGrid()
     {
         if (transform.childCount > 0)
@@ -27,16 +29,19 @@ public class World : MonoBehaviour
 
     void GenerateGrid(int rows, int columns)
     {
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < columns; i++)
         {
-            for (int k = 0; k < columns; k++)
+            for (int k = 0; k < rows; k++)
             {
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5); //rotation
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
-                gridtile.GetComponent<Tile>().BuildBuilding();
+                gridtile.GetComponent<MeshCollider>().sharedMesh  = gridtile.GetComponent<Tile>().BuildBuilding();
+
                 gridtile.GetComponent<Tile>().SetTileRowColumn(k + 1, i + 1);
-                gridtile.GetComponent<Tile>().SetID(k + i * 10);
+                gridtile.GetComponent<Tile>().SetID(k + i * columns);
+
+                tiles.Add(gridtile.GetComponent<Tile>());
             }
         }
     }
@@ -63,4 +68,6 @@ public class World : MonoBehaviour
         grid_rows = _rows;
         grid_columns = _columns;
     }
+
+    //method SwitchColor(int index)
 }
