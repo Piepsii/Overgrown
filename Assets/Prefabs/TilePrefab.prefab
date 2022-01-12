@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8645046093123953265}
   - component: {fileID: 6953498272516589608}
   - component: {fileID: 1297474768920157695}
-  - component: {fileID: -9217233877626550722}
+  - component: {fileID: 1047649685456988236}
   m_Layer: 0
   m_Name: TilePrefab
   m_TagString: Untagged
@@ -110,21 +110,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc76fbf5431aa84593de72ee7b32fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unique_ID: 0
   Tileprefab:
   - {fileID: 7899988701847390102, guid: 50c0c72f8948ef24fb6ebafe8c786f68, type: 3}
   - {fileID: 4989607958974308672, guid: e4c2ea9a4ce29bd40b21ac4f850288e8, type: 3}
   - {fileID: 4337806011381897781, guid: f34946c6f6aaab7498c45fa41205bde6, type: 3}
   - {fileID: 3871760323792228248, guid: 06be5c7b4e81c114f8fe1c351a51c227, type: 3}
   - {fileID: 1624385122679676934, guid: 8a89120e3b65a324885ff02c2f2e8204, type: 3}
---- !u!114 &-9217233877626550722
-MonoBehaviour:
+--- !u!65 &1047649685456988236
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6856205858896306091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1379829ba192e2c49b0152e20ea5a1d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 6.54, y: 8.65, z: 4.89}
+  m_Center: {x: 0, y: 2.7, z: 0}

@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
-
+using Overgrown.GameEnums;
 public class World : MonoBehaviour
 {
     public GameObject prefab;
-    [SerializeField]
-    private int grid_columns; //For now public in order to access those in the inspector
-    [SerializeField]
-    private int grid_rows;
+    public Material[] grey;
+    public Material[] red;
+    public Material[] green;
 
+    private int grid_columns;
+    private int grid_rows;
     private List<Tile> tiles = new List<Tile>();
+    
+
+    private void Start()
+    {
+    }
 
     public void CreateGrid()
     {
@@ -27,8 +33,9 @@ public class World : MonoBehaviour
     }
 
 
-    void GenerateGrid(int rows, int columns)
+    public void GenerateGrid(int rows, int columns)
     {
+
         for (int i = 0; i < columns; i++)
         {
             for (int k = 0; k < rows; k++)
@@ -36,9 +43,7 @@ public class World : MonoBehaviour
                 GameObject gridtile = Instantiate(prefab, transform);
                 gridtile.transform.position = new Vector3(transform.position.x + (k * 10) + 5, transform.position.y, transform.position.z - (i * 10) + 5); //rotation
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
-                gridtile.GetComponent<MeshCollider>().sharedMesh  = gridtile.GetComponent<Tile>().BuildBuilding();
-
-                gridtile.GetComponent<Tile>().SetTileRowColumn(k + 1, i + 1);
+                gridtile.GetComponent<MeshCollider>().sharedMesh = gridtile.GetComponent<Tile>().BuildBuilding(grey, red, green);
                 gridtile.GetComponent<Tile>().SetID(k + i * columns);
 
                 tiles.Add(gridtile.GetComponent<Tile>());
@@ -53,6 +58,7 @@ public class World : MonoBehaviour
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
+        tiles.Clear();
     }
 
     void ClearConsole()
@@ -69,5 +75,16 @@ public class World : MonoBehaviour
         grid_columns = _columns;
     }
 
-    //method SwitchColor(int index)
+    public void SwitchColor(int index, CellState state) //Win
+    {
+        tiles[index].GetComponent<Tile>().SwitchColor(state);
+    }
+
+    public void OnWinSwitchColor()
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].GetComponent<Tile>().SwitchColor(CellState.Filled);
+        }
+    }
 }
