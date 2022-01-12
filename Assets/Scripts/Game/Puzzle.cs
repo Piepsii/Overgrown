@@ -1,14 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Overgrown.GameEnums;
 
 [ExecuteInEditMode]
 public class Puzzle : MonoBehaviour
 {
+    public bool[] solution;
+
     private int width, height;
-    private Overgrown.GameEnums.CellState[] _cellState;
-    [SerializeField]
-    public bool[] solution; //Editable
+    private CellState[] cellState;
     private int percentage;
     private bool solved;
 
@@ -19,25 +19,51 @@ public class Puzzle : MonoBehaviour
     public int Width { get; }
     public int Height { get; }
 
-    private void Update()
-    {
-
-    }
-
     public void NewPuzzle()
     {
         SetSizePercentage(5, 5, 15);
-        solution = Solution();
+        solution = CreateNewSolution();
         cluesColumns.Clear();
         cluesRows.Clear();
         GenerateClues(5, 5);
+        cellState = new CellState[solution.Length];
+    }
+    public void PrintClues()
+    {
+        for (int i = 0; i < cluesRows.Count; i++)
+        {
+            string result = string.Join(" ", cluesRows[i]);
+            Debug.Log(result);
+        }
+        for (int i = 0; i < cluesColumns.Count; i++)
+        {
+            string result = string.Join(" ", cluesColumns[i]);
+            Debug.Log(result);
+        }
     }
 
-    void CheckPuzzle()
+    public void ToggleCellState(int id)
     {
-        for (int i = 0; i < _cellState.Length; i++)
+        if(cellState[id] == CellState.Empty || cellState[id] == CellState.Crossed)
         {
-            if (_cellState[i] == Overgrown.GameEnums.CellState.Filled && solution[i] || _cellState[i] == Overgrown.GameEnums.CellState.Empty && !solution[i])
+            cellState[id] = CellState.Filled;
+        }
+        else
+        {
+            cellState[id] = CellState.Empty;
+        }
+    }
+
+    public void CrossCell(int id)
+    {
+        cellState[id] = CellState.Crossed;
+    }
+
+    private void CheckPuzzleSolved()
+    {
+        for (int i = 0; i < cellState.Length; i++)
+        {
+            if (cellState[i] == CellState.Filled && solution[i] || cellState[i] == CellState.Empty && !solution[i])
             {
                 continue;
             }
@@ -46,7 +72,7 @@ public class Puzzle : MonoBehaviour
         solved = true;
     }
 
-    bool[] Solution()
+    private bool[] CreateNewSolution()
     {
         bool[] new_solution = new bool[width * height];
 
@@ -66,16 +92,11 @@ public class Puzzle : MonoBehaviour
         return new_solution;
     }
 
-    void SetSizePercentage(int _width, int _height, int _percentage)
+    private void SetSizePercentage(int _width, int _height, int _percentage)
     {
         height = _height;
         width = _width;
         percentage = _percentage;
-    }
-
-    public void SwitchCellStateAt(Vector3 position)
-    {
-
     }
 
     private void GenerateClues(int width, int height)
@@ -136,20 +157,4 @@ public class Puzzle : MonoBehaviour
             temp.Clear();
         }
     }
-
-
-    public void PrintClues()
-    {
-        for (int i = 0; i < cluesRows.Count; i++)
-        {
-            string result = string.Join(" ", cluesRows[i]);
-            Debug.Log(result);
-        }
-        for (int i = 0; i < cluesColumns.Count; i++)
-        {
-            string result = string.Join(" ", cluesColumns[i]);
-            Debug.Log(result);
-        }
-    }
-
 }

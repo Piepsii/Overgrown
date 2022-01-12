@@ -19,6 +19,8 @@ public class Level : MonoBehaviour
     {
         timeAtStart = Time.time;
         won = false;
+        puzzle = GetComponentInChildren<Puzzle>();
+        world = GetComponentInChildren<World>();
     }
 
     private void Update()
@@ -29,9 +31,14 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void ChangeCellState(Vector3 position)
+    public void ToggleCellState(int id)
     {
-        puzzle.SwitchCellStateAt(position);
+        puzzle.ToggleCellState(id);
+    }
+
+    public void CrossCell(int id)
+    {
+        puzzle.CrossCell(id);
     }
 
     public int GetWidth()
