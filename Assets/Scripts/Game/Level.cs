@@ -19,6 +19,8 @@ public class Level : MonoBehaviour
     {
         timeAtStart = Time.time;
         won = false;
+        puzzle = GetComponentInChildren<Puzzle>();
+        world = GetComponentInChildren<World>();
     }
 
     private void Update()

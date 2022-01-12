@@ -14,6 +14,7 @@ namespace Overgrown.GameManager
             {
                 GameManager.Instance.LevelManager = this;
             }
+            activeLevel = FindObjectOfType<Level>();
         }
 
         public void ToggleCellState(int id)

@@ -38,9 +38,13 @@ public class Player : MonoBehaviour
         CalculateCameraPosition();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         CheckInput();
+        if(Input.GetButton(rightMouseButton))
+            Cursor.visible = false;
+        else
+            Cursor.visible = true;
     }
 
     private void LateUpdate()
@@ -101,21 +105,18 @@ public class Player : MonoBehaviour
         const float e = 0.001f;
         if ((input.x < -e || input.x > e || input.y < -e || input.y > e) && Input.GetButton(rightMouseButton))
         {
-            Cursor.visible = false;
             orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
             return true;
         }
-        Cursor.visible = true;
         return false;
     }
     private void CheckInput()
     {
-        Vector3 mousePosition = Input.mousePosition;
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Hit Ray");
+            Debug.Log("Hit Ray at " + hit.transform.name);
             var tile = hit.transform.GetComponent<Tile>();
             if (tile != null)
             {

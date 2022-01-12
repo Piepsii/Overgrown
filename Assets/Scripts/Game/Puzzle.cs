@@ -26,6 +26,7 @@ public class Puzzle : MonoBehaviour
         cluesColumns.Clear();
         cluesRows.Clear();
         GenerateClues(5, 5);
+        cellState = new CellState[solution.Length];
     }
     public void PrintClues()
     {
@@ -58,7 +59,7 @@ public class Puzzle : MonoBehaviour
         cellState[id] = CellState.Crossed;
     }
 
-    private void CheckPuzzle()
+    private void CheckPuzzleSolved()
     {
         for (int i = 0; i < cellState.Length; i++)
         {
