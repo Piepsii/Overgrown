@@ -12,6 +12,13 @@ public class Tile : MonoBehaviour
     bool clickable;
 
     //color
+    private Material[] grey;
+    private Material[] red;
+
+    private List<GameObject> childObjects = new List<GameObject>();
+
+    private List<Material[]> originalMats = new List<Material[]>();
+
 
     private Mesh mesh;
 
@@ -21,10 +28,24 @@ public class Tile : MonoBehaviour
 
     public Mesh Mesh { get; }
 
-    public Mesh BuildBuilding() //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
+    public Mesh BuildBuilding(Material[] _grey, Material[] _red) //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
+        red = _red;
+        grey = _grey;
         GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
         go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
+
+        for(int i = 0; i < go.transform.childCount; i++)
+        {
+            childObjects.Add(go.transform.GetChild(i).gameObject);
+        }
+
+        for (int i = 0; i < childObjects.Count; i++)
+        {
+            originalMats.Add(childObjects[i].GetComponent<MeshRenderer>().sharedMaterials);
+        }
+        SwitchColor(Overgrown.GameEnums.CellState.Empty);
+
         return go.GetComponent<MeshFilter>().sharedMesh;
     }
 
@@ -49,6 +70,29 @@ public class Tile : MonoBehaviour
         }
     }
 
-
     //method SwitchColor()
+    public void SwitchColor(Overgrown.GameEnums.CellState state)
+    {
+        if (state == Overgrown.GameEnums.CellState.Crossed)
+        {
+            for (int i = 0; i < childObjects.Count; i++)
+            {
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = red;
+            }
+        }
+        else if (state == Overgrown.GameEnums.CellState.Empty)
+        {
+            for (int i = 0; i < childObjects.Count; i++)
+            {
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = grey;
+            }
+        }
+        else if (state == Overgrown.GameEnums.CellState.Filled)
+        {
+            for (int i = 0; i < childObjects.Count; i++)
+            {
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = originalMats[i];
+            }
+        }
+    }
 }
