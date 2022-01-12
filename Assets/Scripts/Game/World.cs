@@ -6,8 +6,10 @@ using System.Reflection;
 public class World : MonoBehaviour
 {
     public GameObject prefab;
-    public int grid_columns; //For now public in order to access those in the inspector
-    public int grid_rows;
+    [SerializeField]
+    private int grid_columns; //For now public in order to access those in the inspector
+    [SerializeField]
+    private int grid_rows;
 
     public void CreateGrid()
     {
