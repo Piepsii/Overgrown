@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Overgrown.GameEnums;
+using Overgrown.GameManager;
 
 [ExecuteInEditMode]
 public class Puzzle : MonoBehaviour
 {
     public bool[] solution;
-
     private int width, height;
     private CellState[] cellState;
     private int percentage;
@@ -19,13 +19,17 @@ public class Puzzle : MonoBehaviour
     public int Width { get; }
     public int Height { get; }
 
+
+
+    private void Start()
+    {
+    }
     public void NewPuzzle()
     {
-        SetSizePercentage(5, 5, 15);
         solution = CreateNewSolution();
         cluesColumns.Clear();
         cluesRows.Clear();
-        GenerateClues(5, 5);
+        GenerateClues(width, height);
         cellState = new CellState[solution.Length];
     }
     public void PrintClues()
@@ -42,9 +46,9 @@ public class Puzzle : MonoBehaviour
         }
     }
 
-    public void ToggleCellState(int id)
+    public CellState ToggleCellState(int id)
     {
-        if(cellState[id] == CellState.Empty || cellState[id] == CellState.Crossed)
+        if (cellState[id] == CellState.Empty || cellState[id] == CellState.Crossed)
         {
             cellState[id] = CellState.Filled;
         }
@@ -52,14 +56,21 @@ public class Puzzle : MonoBehaviour
         {
             cellState[id] = CellState.Empty;
         }
+
+        if (IsPuzzleSolved())
+        {
+            GameManager.Instance.SetStateToGameOver();
+        }
+        return cellState[id];
+
     }
 
-    public void CrossCell(int id)
+    public CellState CrossCell(int id)
     {
-        cellState[id] = CellState.Crossed;
+        return cellState[id] = cellState[id] == CellState.Crossed ? CellState.Empty : CellState.Crossed;
     }
 
-    private void CheckPuzzleSolved()
+    private bool IsPuzzleSolved()
     {
         for (int i = 0; i < cellState.Length; i++)
         {
@@ -67,9 +78,9 @@ public class Puzzle : MonoBehaviour
             {
                 continue;
             }
-            return;
+            return false;
         }
-        solved = true;
+        return solved = true;
     }
 
     private bool[] CreateNewSolution()
@@ -92,11 +103,13 @@ public class Puzzle : MonoBehaviour
         return new_solution;
     }
 
-    private void SetSizePercentage(int _width, int _height, int _percentage)
+    public void SetSizePercentage(int _width, int _height, int _percentage)
     {
         height = _height;
         width = _width;
-        percentage = _percentage;
+        float size = height * width;
+        float tempperc = _percentage;
+        percentage = (int)(size * (size / tempperc));
     }
 
     private void GenerateClues(int width, int height)

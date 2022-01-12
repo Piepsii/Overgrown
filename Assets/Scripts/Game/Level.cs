@@ -7,6 +7,10 @@ public class Level : MonoBehaviour
 {
     public int index = 0;
 
+    [SerializeField]
+    int width, height, percentage;
+
+
     private float timeAtStart;
     private bool won;
     private World world;
@@ -20,7 +24,10 @@ public class Level : MonoBehaviour
         timeAtStart = Time.time;
         won = false;
         puzzle = GetComponentInChildren<Puzzle>();
+        puzzle.SetSizePercentage(width, height, percentage);
+        puzzle.NewPuzzle();
         world = GetComponentInChildren<World>();
+        world.GenerateGrid(width, height);
     }
 
     private void Update()
@@ -33,12 +40,14 @@ public class Level : MonoBehaviour
 
     public void ToggleCellState(int id)
     {
-        puzzle.ToggleCellState(id);
+        var state = puzzle.ToggleCellState(id);
+        world.SwitchColor(id, state);
     }
 
     public void CrossCell(int id)
     {
-        puzzle.CrossCell(id);
+        var state = puzzle.CrossCell(id);
+        world.SwitchColor(id, state);
     }
 
     public int GetWidth()
