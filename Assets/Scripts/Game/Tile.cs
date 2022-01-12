@@ -12,7 +12,6 @@ public class Tile : MonoBehaviour
     bool clickable;
 
     public List<GameObject> Tileprefab = new List<GameObject>();
-
     private List<GameObject> tiles = new List<GameObject>();
 
     private bool _checked;
