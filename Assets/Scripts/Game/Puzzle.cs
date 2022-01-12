@@ -31,7 +31,6 @@ public class Puzzle : MonoBehaviour
         cluesColumns.Clear();
         cluesRows.Clear();
         GenerateClues(5, 5);
-
     }
 
     void CheckPuzzle()
