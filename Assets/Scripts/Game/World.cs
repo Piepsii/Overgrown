@@ -14,11 +14,6 @@ public class World : MonoBehaviour
     private int grid_rows;
     private List<Tile> tiles = new List<Tile>();
     
-
-    private void Start()
-    {
-    }
-
     public void CreateGrid()
     {
         if (transform.childCount > 0)
@@ -32,10 +27,8 @@ public class World : MonoBehaviour
         }
     }
 
-
     public void GenerateGrid(int rows, int columns)
     {
-
         for (int i = 0; i < columns; i++)
         {
             for (int k = 0; k < rows; k++)
@@ -45,7 +38,6 @@ public class World : MonoBehaviour
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
                 gridtile.GetComponent<MeshCollider>().sharedMesh = gridtile.GetComponent<Tile>().BuildBuilding(grey, red, green);
                 gridtile.GetComponent<Tile>().SetID(k + i * columns);
-
                 tiles.Add(gridtile.GetComponent<Tile>());
             }
         }
