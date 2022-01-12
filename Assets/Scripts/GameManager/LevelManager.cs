@@ -16,14 +16,14 @@ namespace Overgrown.GameManager
             }
         }
 
-        public void ToggleCellState(Vector3 position)
+        public void ToggleCellState(int id)
         {
-
+            activeLevel.ToggleCellState(id);
         }
 
-        public void CrossCell(Vector3 position)
+        public void CrossCell(int id)
         {
-
+            activeLevel.CrossCell(id);
         }
 
         private bool CreateLevel()

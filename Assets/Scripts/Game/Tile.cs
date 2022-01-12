@@ -5,9 +5,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Tile : MonoBehaviour
 {
+    public int unique_ID;
     private int tile_row;
     private int tile_column;
-    private int unique_ID;
 
     bool clickable;
 

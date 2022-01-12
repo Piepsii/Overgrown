@@ -29,9 +29,14 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void ChangeCellState(Vector3 position)
+    public void ToggleCellState(int id)
     {
-        puzzle.SwitchCellStateAt(position);
+        puzzle.ToggleCellState(id);
+    }
+
+    public void CrossCell(int id)
+    {
+        puzzle.CrossCell(id);
     }
 
     public int GetWidth()

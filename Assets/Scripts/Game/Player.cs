@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         CalculateCameraPosition();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         CheckInput();
     }
@@ -101,26 +101,35 @@ public class Player : MonoBehaviour
         const float e = 0.001f;
         if ((input.x < -e || input.x > e || input.y < -e || input.y > e) && Input.GetButton(rightMouseButton))
         {
+            Cursor.visible = false;
             orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
             return true;
         }
+        Cursor.visible = true;
         return false;
     }
-
     private void CheckInput()
     {
-        var levelManager = GameManager.Instance.LevelManager;
-        var mouseX = Input.GetAxis("Mouse X");
-        var mouseY = Input.GetAxis("Mouse Y");
-        Vector2 mousePosition = new Vector2(mouseX, mouseY);
-        Vector3 worldPosition = cam.ScreenToWorldPoint(mousePosition);
-        if (Input.GetButtonDown(leftMouseButton))
+        Vector3 mousePosition = Input.mousePosition;
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        if (Physics.Raycast(ray, out hit))
         {
-            levelManager.ToggleCellState(worldPosition);
+            Debug.Log("Hit Ray");
+            var tile = hit.transform.GetComponent<Tile>();
+            if (tile != null)
+            {
+                var tileID = tile.unique_ID;
+                var levelManager = GameManager.Instance.LevelManager;
+                if (Input.GetButtonDown(leftMouseButton))
+                { 
+                    levelManager.ToggleCellState(tileID);
+                }
+                else if (Input.GetButtonDown(rightMouseButton))
+                {
+                    levelManager.CrossCell(tileID);
+                }
+            }
         }
-        else if (Input.GetButtonDown(rightMouseButton))
-        {
-            levelManager.CrossCell(worldPosition);
-        } 
     }
 }
