@@ -141,8 +141,16 @@ public class Puzzle : MonoBehaviour
 
     public void PrintClues()
     {
-        string result = string.Join(" ", cluesRows[0]);
-        Debug.Log(result);
+        for (int i = 0; i < cluesRows.Count; i++)
+        {
+            string result = string.Join(" ", cluesRows[i]);
+            Debug.Log(result);
+        }
+        for (int i = 0; i < cluesColumns.Count; i++)
+        {
+            string result = string.Join(" ", cluesColumns[i]);
+            Debug.Log(result);
+        }
     }
 
 }
