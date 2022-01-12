@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        if(Input.GetButton(rightMouseButton))
+            Cursor.visible = false;
+        else
+            Cursor.visible = true;
     }
 
     private void LateUpdate()
@@ -106,21 +110,27 @@ public class Player : MonoBehaviour
         }
         return false;
     }
-
     private void CheckInput()
     {
-        var levelManager = GameManager.Instance.LevelManager;
-        var mouseX = Input.GetAxis("Mouse X");
-        var mouseY = Input.GetAxis("Mouse Y");
-        Vector2 mousePosition = new Vector2(mouseX, mouseY);
-        Vector3 worldPosition = cam.ScreenToWorldPoint(mousePosition);
-        if (Input.GetButtonDown(leftMouseButton))
+        RaycastHit hit;
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
         {
-            levelManager.ToggleCellState(worldPosition);
+            Debug.Log("Hit Ray at " + hit.transform.name);
+            var tile = hit.transform.GetComponent<Tile>();
+            if (tile != null)
+            {
+                var tileID = tile.unique_ID;
+                var levelManager = GameManager.Instance.LevelManager;
+                if (Input.GetButtonDown(leftMouseButton))
+                { 
+                    levelManager.ToggleCellState(tileID);
+                }
+                else if (Input.GetButtonDown(rightMouseButton))
+                {
+                    levelManager.CrossCell(tileID);
+                }
+            }
         }
-        else if (Input.GetButtonDown(rightMouseButton))
-        {
-            levelManager.CrossCell(worldPosition);
-        } 
     }
 }
