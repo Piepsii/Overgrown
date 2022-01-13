@@ -20,5 +20,10 @@ public class PuzzleEditor : Editor
             Debug.ClearDeveloperConsole();
             myScript.PrintClues();
         }
+
+
+
+
+
     }
 }

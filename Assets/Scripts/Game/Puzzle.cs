@@ -6,12 +6,12 @@ using Overgrown.GameManager;
 [ExecuteInEditMode]
 public class Puzzle : MonoBehaviour
 {
-    public bool[] solution;
+    [SerializeField]
+    private bool[] solution;
     private int width, height;
     private CellState[] cellState;
     private int percentage;
     private bool solved;
-
     private List<int[]> cluesRows = new List<int[]>();
     private List<int[]> cluesColumns = new List<int[]>();
 

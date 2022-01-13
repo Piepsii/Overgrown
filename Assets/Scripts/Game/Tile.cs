@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
 {
     public int unique_ID;
     public List<GameObject> Tileprefab = new List<GameObject>();
+    public GameObject crossprefab;
 
 
     private Material[] grey;
@@ -26,7 +27,11 @@ public class Tile : MonoBehaviour
         GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
         go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
 
-        for(int i = 0; i < go.transform.childCount; i++)
+        GameObject gridcross = Instantiate(crossprefab, transform);
+        gridcross.transform.position = go.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
+        gridcross.SetActive(false);
+
+        for (int i = 0; i < go.transform.childCount; i++)
         {
             childObjects.Add(go.transform.GetChild(i).gameObject);
         }
@@ -59,9 +64,9 @@ public class Tile : MonoBehaviour
         //}
     }
 
-    
 
-    public void SwitchColor(CellState state) 
+
+    public void SwitchColor(CellState state)
     {
         if (state == Overgrown.GameEnums.CellState.Crossed)
         {
@@ -86,6 +91,14 @@ public class Tile : MonoBehaviour
                 childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = originalMats[i];
                 _checked = true;
             }
+        }
+    }
+
+    public void TileState(bool isActive)
+    {
+        for (int i = 0; i < childObjects.Count; i++)
+        {
+            childObjects[i].SetActive(isActive);
         }
     }
 }
