@@ -16,6 +16,10 @@ public class Level : MonoBehaviour
     private World world;
     private Puzzle puzzle;
 
+    public int Width { get => width; }
+    public int Height { get => height; }
+    public Puzzle Puzzle { get => puzzle; }
+
     VoidEventChannelSO OnLevelStart;
     VoidEventChannelSO OnLevelEnd;
 
@@ -48,16 +52,6 @@ public class Level : MonoBehaviour
     {
         var state = puzzle.CrossCell(id);
         world.SwitchColor(id, state);
-    }
-
-    public int GetWidth()
-    {
-        return puzzle.Width;
-    }
-
-    public int GetHeight()
-    {
-        return puzzle.Height;
     }
 
     private float CalculateTime()
