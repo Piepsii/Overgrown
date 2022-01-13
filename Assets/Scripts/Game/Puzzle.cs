@@ -15,9 +15,11 @@ public class Puzzle : MonoBehaviour
     private List<int[]> cluesRows = new List<int[]>();
     private List<int[]> cluesColumns = new List<int[]>();
 
-    public bool Solved { get; }
-    public int Width { get; }
-    public int Height { get; }
+    public bool Solved { get => solved; }
+    public int Width { get => width; }
+    public int Height { get => height; }
+    public List<int[]> CluesRows { get => cluesRows; }
+    public List<int[]> CluesColumns { get => cluesColumns; }
 
 
 
@@ -74,7 +76,7 @@ public class Puzzle : MonoBehaviour
     {
         for (int i = 0; i < cellState.Length; i++)
         {
-            if (cellState[i] == CellState.Filled && solution[i] || cellState[i] == CellState.Empty && !solution[i])
+            if (cellState[i] == CellState.Filled && solution[i] || (cellState[i] == CellState.Empty || cellState[i] == CellState.Crossed) && !solution[i])
             {
                 continue;
             }

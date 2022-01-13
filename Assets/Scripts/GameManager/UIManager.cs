@@ -7,6 +7,8 @@ namespace Overgrown.GameManager
     {
         [SerializeField]
         private GameObject canvas;
+        [SerializeField]
+        private GameObject canvas3D;
         private GameStartScreen gameStartScreen;
         private GameScreen gameScreen;
         private GameOverScreen gameOverScreen;
@@ -17,11 +19,12 @@ namespace Overgrown.GameManager
         {
             screenState = ScreenState.GameStart;
             canvas = Instantiate(canvas);
+            canvas3D = Instantiate(canvas3D);
             canvas.name = "Canvas";
-            var transform = canvas.transform;
-            gameStartScreen = transform.GetComponentInChildren<GameStartScreen>(true);
-            gameScreen = transform.GetComponentInChildren<GameScreen>(true);
-            gameOverScreen = transform.GetComponentInChildren<GameOverScreen>(true);
+            canvas3D.name = "Canvas 3D";
+            gameStartScreen = canvas.transform.GetComponentInChildren<GameStartScreen>(true);
+            gameScreen = canvas3D.transform.GetComponentInChildren<GameScreen>(true);
+            gameOverScreen = canvas.transform.GetComponentInChildren<GameOverScreen>(true);
         }
 
         private void Start()
@@ -49,6 +52,7 @@ namespace Overgrown.GameManager
                     screenState = ScreenState.Game;
                     gameStartScreen.gameObject.SetActive(false);
                     gameScreen.gameObject.SetActive(true);
+                    gameScreen.Create();
                     gameOverScreen.gameObject.SetActive(false);
 
                     break;

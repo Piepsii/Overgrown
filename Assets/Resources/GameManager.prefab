@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 4453250101813920316, guid: fd59a42b6d1eaa04f825150049eaf924, type: 3}
+  canvas3D: {fileID: 7747235612962241758, guid: e799de0bd18e31347a87e612c22440d0, type: 3}
 --- !u!1 &7137217533772501230
 GameObject:
   m_ObjectHideFlags: 0
