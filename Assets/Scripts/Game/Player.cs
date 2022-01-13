@@ -3,6 +3,7 @@ using Overgrown.GameManager;
 
 public class Player : MonoBehaviour
 {
+    public bool enableControls = false;
 
     Camera cam;
     [SerializeField]
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     Vector2 orbitAngles = new Vector2(45f, 0f);
     string leftMouseButton = "LMB";
     string rightMouseButton = "RMB";
+    bool needsSetup = true;
 
     private void Awake()
     {
@@ -36,11 +38,16 @@ public class Player : MonoBehaviour
             GameManager.Instance.Player = this;
         }
         CalculateCameraPosition();
+        needsSetup = false;
     }
 
     private void Update()
     {
+        if (!enableControls)
+            return;
+
         CheckInput();
+
         if(Input.GetButton(rightMouseButton))
             Cursor.visible = false;
         else
@@ -49,13 +56,15 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!enableControls)
+            AutomaticRotation();
         CalculateCameraPosition();
     }
 
     private void CalculateCameraPosition()
     {
         Quaternion lookRotation;
-        if (ManualRotation())
+        if (ManualRotation() || needsSetup)
         {
             ConstrainAngles();
             lookRotation = Quaternion.Euler(orbitAngles);
@@ -110,13 +119,18 @@ public class Player : MonoBehaviour
         }
         return false;
     }
+
+    private void AutomaticRotation()
+    {
+        orbitAngles.y += rotationSpeed * Time.unscaledDeltaTime;
+    }
+
     private void CheckInput()
     {
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Hit Ray at " + hit.transform.name);
             var tile = hit.transform.GetComponent<Tile>();
             if (tile != null)
             {
