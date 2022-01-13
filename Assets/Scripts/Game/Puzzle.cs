@@ -111,7 +111,7 @@ public class Puzzle : MonoBehaviour
         width = _width;
         float size = height * width;
         float tempperc = _percentage;
-        percentage = (int)(size * (size / tempperc));
+        percentage = (int) (size * tempperc / 100.0f);
     }
 
     private void GenerateClues(int width, int height)

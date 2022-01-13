@@ -18,6 +18,8 @@ public class Tile : MonoBehaviour
     private List<Material[]> originalMats = new List<Material[]>();
     private Mesh mesh;
     private bool _checked;
+
+    private GameObject cross;
     public Mesh Mesh { get; }
     public Mesh BuildBuilding(Material[] _grey, Material[] _red, Material[] _green) //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
@@ -27,9 +29,9 @@ public class Tile : MonoBehaviour
         GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
         go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
 
-        GameObject gridcross = Instantiate(crossprefab, transform);
-        gridcross.transform.position = go.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
-        gridcross.SetActive(false);
+        cross = Instantiate(crossprefab, transform);
+        cross.transform.position = go.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
+        cross.SetActive(false);
 
         for (int i = 0; i < go.transform.childCount; i++)
         {
@@ -100,5 +102,10 @@ public class Tile : MonoBehaviour
         {
             childObjects[i].SetActive(isActive);
         }
+    }
+
+    public void CrossState(bool isActive)
+    {
+        cross.SetActive(isActive);
     }
 }

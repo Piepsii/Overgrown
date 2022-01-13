@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 484824601}
-  m_IndirectSpecularColor: {r: 0.5886246, g: 0.6196319, b: 0.8656772, a: 1}
+  m_IndirectSpecularColor: {r: 0.68671, g: 0.68019295, b: 0.81164986, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484824600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 152db974bb15e964c8b89588c1a703b7, type: 3}
   m_Name: 
@@ -489,6 +489,10 @@ PrefabInstance:
       propertyPath: grid_rows
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8692025372409951994, guid: d8b291da12457d94db659833522e5a1b, type: 3}
+      propertyPath: tileprefab
+      value: 
+      objectReference: {fileID: 6856205858896306091, guid: ed6a4e4bf8712034ea62f002929b2213, type: 3}
     - target: {fileID: 8692025372409951994, guid: d8b291da12457d94db659833522e5a1b, type: 3}
       propertyPath: grid_columns
       value: 5

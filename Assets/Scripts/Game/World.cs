@@ -75,17 +75,21 @@ public class World : MonoBehaviour
     public void SwitchColor(int index, CellState state) //Win
     {
         tiles[index].GetComponent<Tile>().SwitchColor(state);
+
         if(state == CellState.Filled)
         {
             tiles[index].GetComponent<Tile>().TileState(true);
+            tiles[index].GetComponent<Tile>().CrossState(false);
         }
         if(state == CellState.Empty)
         {
             tiles[index].GetComponent<Tile>().TileState(false);
+            tiles[index].GetComponent<Tile>().CrossState(false);
         }
         if(state == CellState.Crossed)
         {
-             //CROSS
+            tiles[index].GetComponent<Tile>().TileState(false);
+            tiles[index].GetComponent<Tile>().CrossState(true);
         }
     }
 
@@ -97,12 +101,12 @@ public class World : MonoBehaviour
         }
     }
 
-    public void DisableTiles()
+    private void DisableTiles()
     {
         for (int i = 0; i < tiles.Count; i++)
         {
             tiles[i].GetComponent<Tile>().TileState(false);
         }
     }
-
+    
 }
