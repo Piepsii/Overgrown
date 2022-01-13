@@ -1,11 +1,15 @@
 using UnityEngine;
+using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
 {
     public class GameManager : MonoBehaviour
     {
+        public GameState gameState = GameState.GameStart;
+
         [SerializeField]
         private string sceneToLoad;
+
 
         private static GameManager gameManager;
         private TimeManager timeManager;
@@ -13,7 +17,9 @@ namespace Overgrown.GameManager
         private SceneManager sceneManager;
         private LevelManager levelManager;
         private AudioManager audioManager;
+        private UIManager uIManager;
         private Config config;
+        private Player player;
 
         public string SceneToLoad { get => sceneToLoad; }
 
@@ -23,7 +29,27 @@ namespace Overgrown.GameManager
         public SceneManager SceneController { get => sceneManager; set => sceneManager = value; }
         public LevelManager LevelManager { get => levelManager; set => levelManager = value; }
         public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
+        public UIManager UIManager { get => uIManager; set => uIManager = value; }
         public Config Config { get => config; set => config = value;}
+        public Player Player { get => player; set => player = value; }
+
+        public void SetStateToGameStart()
+        {
+            gameState = GameState.GameStart;
+            uIManager.SwitchState(gameState);
+        }
+
+        public void SetStateToGame()
+        {
+            gameState = GameState.Game;
+            uIManager.SwitchState(gameState);
+        }
+
+        public void SetStateToGameOver()
+        {
+            gameState = GameState.GameOver;
+            uIManager.SwitchState(gameState);
+        }
 
 
         [RuntimeInitializeOnLoadMethod]

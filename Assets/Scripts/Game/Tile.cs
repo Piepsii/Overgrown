@@ -1,126 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum TileType
-{
-    None,
-    OneFloor,
-    TwoFloors,
-    ThreeFloors
-}
+using Overgrown.GameEnums;
 
 [ExecuteInEditMode]
 public class Tile : MonoBehaviour
 {
-    public float row;
-    public float column;
-    public TileType type;
-    public GameObject Tileprefab;
-    private List<GameObject> tiles = new List<GameObject>();
+    public int unique_ID;
+    public List<GameObject> Tileprefab = new List<GameObject>();
 
+
+    private Material[] grey;
+    private Material[] red;
+    private Material[] green;
+    private List<GameObject> childObjects = new List<GameObject>();
+    private List<Material[]> originalMats = new List<Material[]>();
+    private Mesh mesh;
     private bool _checked;
-
-    public void BuildFloors() //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
+    public Mesh Mesh { get; }
+    public Mesh BuildBuilding(Material[] _grey, Material[] _red, Material[] _green) //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
-        if (type == TileType.None)
+        red = _red;
+        grey = _grey;
+        green = _green;
+        GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
+        go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
+
+        for(int i = 0; i < go.transform.childCount; i++)
         {
-            DeleteFloors();
+            childObjects.Add(go.transform.GetChild(i).gameObject);
         }
-        else if(type == TileType.OneFloor)
+
+        for (int i = 0; i < childObjects.Count; i++)
         {
-            DeleteFloors();
-            GameObject go = Instantiate(Tileprefab, transform);
-            go.transform.position = transform.position + Vector3.up * 1.75f;
-            tiles.Add(go);
+            originalMats.Add(childObjects[i].GetComponent<MeshRenderer>().sharedMaterials);
         }
-        else if (type == TileType.TwoFloors)
-        {
-            DeleteFloors();
-            for (int i = 0; i < 2; i++)
-            {
-                GameObject go = Instantiate(Tileprefab, transform);
-                go.transform.position = transform.position + Vector3.up * (1.75f + (i * 3.5f));
-                tiles.Add(go);
-            }
-        }
-        else if (type == TileType.ThreeFloors)
-        {
-            DeleteFloors();
-            for (int i = 0; i < 3; i++)
-            {
-                GameObject go = Instantiate(Tileprefab, transform);
-                go.transform.position = transform.position + Vector3.up * (1.75f + (i * 3.5f));
-                tiles.Add(go);
-            }
-        }
+        SwitchColor(Overgrown.GameEnums.CellState.Empty);
+
+        return go.GetComponent<MeshFilter>().sharedMesh;
     }
 
-    public void DeleteFloors()
+
+    public void SetID(int _ID)
     {
-        for (int i = 0; i < tiles.Count; i++)
-        {
-            DestroyImmediate(tiles[i].gameObject);
-        }
-        tiles.Clear();
+        unique_ID = _ID;
     }
 
-    public void GenerateTile(int num)
-    {
-        if (num == 0)
-        {
-            type = TileType.OneFloor;
-        }
-        else if (num == 1)
-        {
-            type = TileType.TwoFloors;
-        }
-        else
-        {
-            type = TileType.ThreeFloors;
-        }
-        BuildFloors();
-    }
-
+    //Input Related Methods to be removed
     private void OnMouseEnter()
     {
-        if (!_checked)
-        {
-            GetComponent<Renderer>().material.color = Color.green;
-        }
-    }
-    private void OnMouseExit()
-    {
-        if (!_checked)
-        {
-            GetComponent<Renderer>().material.color = Color.white;
-        }
-
+        //if (!_checked)
+        //{
+        //    for (int i = 0; i < childObjects.Count; i++)
+        //    {
+        //        childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = green;
+        //        _checked = true;
+        //    }
+        //}
     }
 
+    
 
-    private void OnMouseDown()
+    public void SwitchColor(CellState state) 
     {
-        if (Input.GetMouseButtonDown(0))
+        if (state == Overgrown.GameEnums.CellState.Crossed)
         {
-            if (!_checked)
+            for (int i = 0; i < childObjects.Count; i++)
             {
-                GetComponent<Renderer>().material.color = Color.black;
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = red;
                 _checked = true;
-
             }
-            else
+        }
+        else if (state == Overgrown.GameEnums.CellState.Empty)
+        {
+            for (int i = 0; i < childObjects.Count; i++)
             {
-                GetComponent<Renderer>().material.color = Color.white;
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = grey;
                 _checked = false;
             }
         }
-        
-        if (Input.GetMouseButtonDown(2))
+        else if (state == Overgrown.GameEnums.CellState.Filled)
         {
-            if (!_checked)
+            for (int i = 0; i < childObjects.Count; i++)
             {
-                GetComponent<Renderer>().material.color = Color.red;
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = originalMats[i];
+                _checked = true;
             }
         }
     }
