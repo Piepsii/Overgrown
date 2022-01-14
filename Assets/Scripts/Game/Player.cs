@@ -1,9 +1,10 @@
 using UnityEngine;
 using Overgrown.GameManager;
+using Overgrown.GameEnums;
 
 public class Player : MonoBehaviour
 {
-    public bool enableControls = false;
+    public CameraState state = CameraState.Idle;
 
     Camera cam;
     [SerializeField]
@@ -16,12 +17,14 @@ public class Player : MonoBehaviour
     float rotationSpeed = 90f;
     [SerializeField, Range(-89f, 89f)]
     float minVerticalAngle = -30f, maxVerticalAngle = 60f;
+    [SerializeField, Range(0f, 90f)]
+    float alignSmoothRange = 45f;
 
-    Vector3 focusPoint, previousFocusPoint;
+    Vector3 focusPoint;
     Vector2 orbitAngles = new Vector2(45f, 0f);
     string leftMouseButton = "LMB";
     string rightMouseButton = "RMB";
-    bool needsSetup = true;
+    bool needsSetup = false;
 
     private void Awake()
     {
@@ -38,12 +41,11 @@ public class Player : MonoBehaviour
             GameManager.Instance.Player = this;
         }
         CalculateCameraPosition();
-        needsSetup = false;
     }
 
     private void Update()
     {
-        if (!enableControls)
+        if (state != CameraState.Manual)
             return;
 
         CheckInput();
@@ -56,23 +58,35 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!enableControls)
-            AutomaticRotation();
         CalculateCameraPosition();
     }
 
     private void CalculateCameraPosition()
     {
-        Quaternion lookRotation;
-        if (ManualRotation() || needsSetup)
+        Quaternion lookRotation = cam.transform.localRotation;
+        switch (state)
         {
-            ConstrainAngles();
-            lookRotation = Quaternion.Euler(orbitAngles);
+            case CameraState.Idle:
+                IdleRotation();
+                ConstrainAngles();
+                lookRotation = Quaternion.Euler(orbitAngles);
+                break;
+            case CameraState.Automatic:
+                AutomaticRotation();
+                ConstrainAngles();
+                lookRotation = Quaternion.Euler(orbitAngles);
+                if (orbitAngles.y < 5f)
+                    state = CameraState.Manual;
+                break;
+            case CameraState.Manual:
+                if (ManualRotation())
+                {
+                    ConstrainAngles();
+                    lookRotation = Quaternion.Euler(orbitAngles);
+                }
+                break;
         }
-        else
-        {
-            lookRotation = cam.transform.localRotation;
-        }
+
         Vector3 lookDirection = lookRotation * Vector3.forward;
         distance -= Input.mouseScrollDelta.y;
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
@@ -122,7 +136,23 @@ public class Player : MonoBehaviour
 
     private void AutomaticRotation()
     {
-        orbitAngles.y += rotationSpeed * Time.unscaledDeltaTime;
+        float headingAngle = 0;
+        float rotationChange = rotationSpeed * Time.unscaledDeltaTime;
+        float deltaAbs = Mathf.Abs(Mathf.DeltaAngle(headingAngle, orbitAngles.y));
+        if (deltaAbs < alignSmoothRange)
+        {
+            rotationChange *= deltaAbs / alignSmoothRange;
+        }
+        else if ((180f - deltaAbs) < alignSmoothRange)
+        {
+            rotationChange *= (180f - deltaAbs) / alignSmoothRange;
+        }
+        orbitAngles.y = Mathf.MoveTowardsAngle(orbitAngles.y, headingAngle, rotationChange);
+    }
+
+    private void IdleRotation()
+    {
+        orbitAngles.y += rotationSpeed / 4 * Time.unscaledDeltaTime;
     }
 
     private void CheckInput()

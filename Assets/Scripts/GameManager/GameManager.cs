@@ -45,15 +45,15 @@ namespace Overgrown.GameManager
             gameState = GameState.GameStart;
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileMenu;
-            player.enableControls = false;
+            player.state = CameraState.Idle;
         }
 
         public void SetStateToGame()
         {
             gameState = GameState.Game;
             uIManager.SwitchState(gameState);
-            ppVolume.profile = ppProfileGame;
-            player.enableControls = true;
+            ppVolume.profile = ppProfileGame; 
+            player.state = CameraState.Automatic;
         }
 
         public void SetStateToGameOver()
@@ -61,7 +61,7 @@ namespace Overgrown.GameManager
             gameState = GameState.GameOver;
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileGame;
-            player.enableControls = false;
+            player.state = CameraState.Idle;
         }
 
 
