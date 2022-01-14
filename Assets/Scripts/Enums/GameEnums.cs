@@ -21,5 +21,12 @@ namespace Overgrown.GameEnums
         Filled,
         Crossed
     }
+
+    public enum CameraState
+    {
+        Idle,
+        Automatic,
+        Manual
+    }
 }
 
