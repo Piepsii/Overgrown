@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
     public List<GameObject> Tileprefab = new List<GameObject>();
     public GameObject crossprefab;
     public GameObject treesprefab;
-
+    public bool enableHoverColoring = false;
 
     private Material[] grey;
     private Material[] red;
@@ -66,6 +66,8 @@ public class Tile : MonoBehaviour
     //Input Related Methods to be removed
     private void OnMouseEnter()
     {
+        if (!enableHoverColoring)
+            return;
         if (cellState == CellState.Empty || cellState == CellState.Crossed)
         {
             tilebase.GetComponent<MeshRenderer>().sharedMaterial = green[0];
@@ -81,6 +83,8 @@ public class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (!enableHoverColoring)
+            return;
         if (cellState == CellState.Empty || cellState == CellState.Crossed)
         {
             tilebase.GetComponent<MeshRenderer>().sharedMaterial = tilebasemat;

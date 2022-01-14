@@ -19,6 +19,7 @@ public class Level : MonoBehaviour
     public int Width { get => width; }
     public int Height { get => height; }
     public Puzzle Puzzle { get => puzzle; }
+    public World World { get => world; }
 
     VoidEventChannelSO OnLevelStart;
     VoidEventChannelSO OnLevelEnd;
