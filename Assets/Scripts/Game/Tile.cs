@@ -131,6 +131,13 @@ public class Tile : MonoBehaviour
             trees.SetActive(true);
         }
     }
+    public void DisableTrees()
+    {
+        if (cellState == Overgrown.GameEnums.CellState.Crossed || cellState == Overgrown.GameEnums.CellState.Empty)
+        {
+            trees.SetActive(true);
+        }
+    }
 
 
     public void TileState(bool isActive)
@@ -144,5 +151,10 @@ public class Tile : MonoBehaviour
     public void CrossState(bool isActive)
     {
         cross.SetActive(isActive);
+    }
+
+    public void SwitchState(CellState state)
+    {
+        cellState = state;
     }
 }

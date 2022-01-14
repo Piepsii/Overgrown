@@ -39,6 +39,12 @@ public class Level : MonoBehaviour
         world.GenerateGrid(width, height);
     }
 
+    public void CreateLevel()
+    {
+        world.GenerateGrid(width, height);
+        world.ToggleHoverColoring(true);
+    }
+
     private void Update()
     {
         if (puzzle.Solved)

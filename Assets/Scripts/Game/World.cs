@@ -13,7 +13,19 @@ public class World : MonoBehaviour
     private int grid_columns;
     private int grid_rows;
     private List<Tile> tiles = new List<Tile>();
-    
+
+    private void Start()
+    {
+        GenerateGrid(5, 5);
+        for(int i =0; i < 12; i++)
+        {
+            int Rand = Random.Range(i, 25);
+            SwitchColor(Rand, CellState.Filled);
+            tiles[Rand].SwitchState(CellState.Filled);
+        }
+        OnWinSwitchOnTrees();
+    }
+
     public void CreateGrid()
     {
         if (transform.childCount > 0)
@@ -29,6 +41,8 @@ public class World : MonoBehaviour
 
     public void GenerateGrid(int rows, int columns)
     {
+        DeleteGrid();
+        ToggleHoverColoring(true);
         for (int i = 0; i < columns; i++)
         {
             for (int k = 0; k < rows; k++)
@@ -38,8 +52,6 @@ public class World : MonoBehaviour
                 gridtile.name = "Tile " + (1 + k).ToString("0#") + "x" + (1 + i).ToString("0#");
                 gridtile.GetComponent<MeshCollider>().sharedMesh = gridtile.GetComponent<Tile>().BuildBuilding(grey, red, green);
                 gridtile.GetComponent<Tile>().SetID(k + i * columns);
-
-
 
                 tiles.Add(gridtile.GetComponent<Tile>());
             }
@@ -80,7 +92,7 @@ public class World : MonoBehaviour
         grid_columns = _columns;
     }
 
-    public void SwitchColor(int index, CellState state) //Win
+    public void SwitchColor(int index, CellState state)
     {
         tiles[index].GetComponent<Tile>().SwitchColor(state);
 
@@ -106,6 +118,13 @@ public class World : MonoBehaviour
         for (int i = 0; i < tiles.Count; i++)
         {
             tiles[i].GetComponent<Tile>().EnableTrees();
+        }
+    }
+    public void DisableTrees()
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            tiles[i].GetComponent<Tile>().DisableTrees();
         }
     }
 
