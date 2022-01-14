@@ -6,12 +6,12 @@ using Overgrown.GameManager;
 [ExecuteInEditMode]
 public class Puzzle : MonoBehaviour
 {
-    public bool[] solution;
+    [SerializeField]
+    private bool[] solution;
     private int width, height;
     private CellState[] cellState;
     private int percentage;
     private bool solved;
-
     private List<int[]> cluesRows = new List<int[]>();
     private List<int[]> cluesColumns = new List<int[]>();
 
@@ -111,7 +111,7 @@ public class Puzzle : MonoBehaviour
         width = _width;
         float size = height * width;
         float tempperc = _percentage;
-        percentage = (int)(size * (size / tempperc));
+        percentage = (int) (size * tempperc / 100.0f);
     }
 
     private void GenerateClues(int width, int height)
