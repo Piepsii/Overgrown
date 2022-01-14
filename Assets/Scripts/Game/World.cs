@@ -93,11 +93,11 @@ public class World : MonoBehaviour
         }
     }
 
-    public void OnWinSwitchColor()
+    public void OnWinSwitchOnTrees()
     {
         for (int i = 0; i < tiles.Count; i++)
         {
-            tiles[i].GetComponent<Tile>().SwitchColor(CellState.Filled);
+            tiles[i].GetComponent<Tile>().EnableTrees();
         }
     }
 

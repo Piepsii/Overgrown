@@ -42,6 +42,7 @@ public class Level : MonoBehaviour
     {
         if (puzzle.Solved)
         {
+            world.OnWinSwitchOnTrees();
             won = true;
         }
     }

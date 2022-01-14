@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     public int unique_ID;
     public List<GameObject> Tileprefab = new List<GameObject>();
     public GameObject crossprefab;
+    public GameObject treesprefab;
 
 
     private Material[] grey;
@@ -20,6 +21,7 @@ public class Tile : MonoBehaviour
     private CellState cellState;
 
     private GameObject cross;
+    private GameObject trees;
     private GameObject tilebase;
     private Material tilebasemat;
     public Mesh Mesh { get; }
@@ -36,6 +38,10 @@ public class Tile : MonoBehaviour
         cross = Instantiate(crossprefab, transform);
         cross.transform.position = tilebase.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
         cross.SetActive(false);
+
+        trees = Instantiate(treesprefab, transform);
+        trees.transform.position = tilebase.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
+        trees.SetActive(false);
 
         for (int i = 0; i < tilebase.transform.childCount; i++)
         {
@@ -113,6 +119,15 @@ public class Tile : MonoBehaviour
             }
         }
     }
+
+    public void EnableTrees()
+    {
+        if (cellState == Overgrown.GameEnums.CellState.Crossed || cellState == Overgrown.GameEnums.CellState.Empty)
+        {
+            trees.SetActive(true);
+        }
+    }
+
 
     public void TileState(bool isActive)
     {
