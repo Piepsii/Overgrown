@@ -117,8 +117,9 @@ MonoBehaviour:
   - {fileID: 4337806011381897781, guid: f34946c6f6aaab7498c45fa41205bde6, type: 3}
   - {fileID: 3871760323792228248, guid: 06be5c7b4e81c114f8fe1c351a51c227, type: 3}
   - {fileID: 1624385122679676934, guid: 8a89120e3b65a324885ff02c2f2e8204, type: 3}
-  crossprefab: {fileID: 2256233324331502709, guid: 4ec2cbf5ed758034cbeefdb676c7b2e6, type: 3}
+  crossprefab: {fileID: 7845738099186456470, guid: 4ec2cbf5ed758034cbeefdb676c7b2e6, type: 3}
   treesprefab: {fileID: 8198777308713344187, guid: 7b1bb984a5f59ee4cb4b5d83faa4d02f, type: 3}
+  enableHoverColoring: 0
 --- !u!65 &1047649685456988236
 BoxCollider:
   m_ObjectHideFlags: 0
