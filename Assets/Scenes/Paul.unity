@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM__Island
       objectReference: {fileID: 0}
+    - target: {fileID: 5902977805782960277, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -152,15 +156,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.1
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 60.27
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.6000004
+      value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -294,11 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5844736994093338074, guid: d8b291da12457d94db659833522e5a1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844736994093338074, guid: d8b291da12457d94db659833522e5a1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844736994093338074, guid: d8b291da12457d94db659833522e5a1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -332,6 +336,10 @@ PrefabInstance:
       propertyPath: grid_rows
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8692025372409951994, guid: d8b291da12457d94db659833522e5a1b, type: 3}
+      propertyPath: tileprefab
+      value: 
+      objectReference: {fileID: 6856205858896306091, guid: ed6a4e4bf8712034ea62f002929b2213, type: 3}
     - target: {fileID: 8692025372409951994, guid: d8b291da12457d94db659833522e5a1b, type: 3}
       propertyPath: grid_columns
       value: 5
@@ -549,15 +557,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8441521067384258544, guid: 0a308ceceae519545935fd85857274f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8441521067384258544, guid: 0a308ceceae519545935fd85857274f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 80.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8441521067384258544, guid: 0a308ceceae519545935fd85857274f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.3
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8441521067384258544, guid: 0a308ceceae519545935fd85857274f9, type: 3}
       propertyPath: m_LocalRotation.w
