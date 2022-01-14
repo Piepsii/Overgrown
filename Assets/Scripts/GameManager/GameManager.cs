@@ -56,6 +56,7 @@ namespace Overgrown.GameManager
             ppVolume.profile = ppProfileGame; 
             player.state = CameraState.Automatic;
             levelManager.activeLevel.World.ToggleHoverColoring(true);
+            levelManager.activeLevel.CreateLevel();
         }
 
         public void SetStateToGameOver()
