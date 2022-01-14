@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM__Island
       objectReference: {fileID: 0}
+    - target: {fileID: 5902977805782960277, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
+      propertyPath: m_TagString
+      value: Island
+      objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -156,11 +160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -34.1
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.6000004
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6530298235360449071, guid: 8366f02ef6ce53a4ba90907a413dc89c, type: 3}
       propertyPath: m_LocalRotation.w

@@ -17,25 +17,29 @@ public class Tile : MonoBehaviour
     private List<GameObject> childObjects = new List<GameObject>();
     private List<Material[]> originalMats = new List<Material[]>();
     private Mesh mesh;
-    private bool _checked;
+    private CellState cellState;
 
     private GameObject cross;
+    private GameObject tilebase;
+    private Material tilebasemat;
     public Mesh Mesh { get; }
     public Mesh BuildBuilding(Material[] _grey, Material[] _red, Material[] _green) //To be changed to appropriate algorithm (probably get prefabs and instantiate them)
     {
         red = _red;
         grey = _grey;
         green = _green;
-        GameObject go = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
-        go.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
+
+        tilebase = Instantiate(Tileprefab[Random.Range(0, Tileprefab.Count)], transform);
+        tilebase.transform.position = transform.position + Vector3.up * 0.0f + Vector3.right * 5f + Vector3.forward * 5f;
+        tilebasemat = tilebase.GetComponent<MeshRenderer>().sharedMaterial;
 
         cross = Instantiate(crossprefab, transform);
-        cross.transform.position = go.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
+        cross.transform.position = tilebase.transform.position + Vector3.up * 1.75f - Vector3.right * 5f - Vector3.forward * 5f;
         cross.SetActive(false);
 
-        for (int i = 0; i < go.transform.childCount; i++)
+        for (int i = 0; i < tilebase.transform.childCount; i++)
         {
-            childObjects.Add(go.transform.GetChild(i).gameObject);
+            childObjects.Add(tilebase.transform.GetChild(i).gameObject);
         }
 
         for (int i = 0; i < childObjects.Count; i++)
@@ -44,7 +48,7 @@ public class Tile : MonoBehaviour
         }
         SwitchColor(Overgrown.GameEnums.CellState.Empty);
 
-        return go.GetComponent<MeshFilter>().sharedMesh;
+        return tilebase.GetComponent<MeshFilter>().sharedMesh;
     }
 
 
@@ -56,42 +60,56 @@ public class Tile : MonoBehaviour
     //Input Related Methods to be removed
     private void OnMouseEnter()
     {
-        //if (!_checked)
-        //{
-        //    for (int i = 0; i < childObjects.Count; i++)
-        //    {
-        //        childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = green;
-        //        _checked = true;
-        //    }
-        //}
+        if (cellState == CellState.Empty || cellState == CellState.Crossed)
+        {
+            tilebase.GetComponent<MeshRenderer>().sharedMaterial = green[0];
+        }
+        else
+        {
+            for (int i = 0; i < childObjects.Count; i++)
+            {
+                childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = green;
+            }
+        }
     }
 
-
+    private void OnMouseExit()
+    {
+        if (cellState == CellState.Empty || cellState == CellState.Crossed)
+        {
+            tilebase.GetComponent<MeshRenderer>().sharedMaterial = tilebasemat;
+        }
+        else
+        {
+            SwitchColor(cellState);
+        }
+    }
 
     public void SwitchColor(CellState state)
     {
+        cellState = state;
         if (state == Overgrown.GameEnums.CellState.Crossed)
         {
             for (int i = 0; i < childObjects.Count; i++)
             {
+                tilebase.GetComponent<MeshRenderer>().sharedMaterial = tilebasemat;
                 childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = red;
-                _checked = true;
             }
         }
         else if (state == Overgrown.GameEnums.CellState.Empty)
         {
             for (int i = 0; i < childObjects.Count; i++)
             {
+                tilebase.GetComponent<MeshRenderer>().sharedMaterial = tilebasemat;
                 childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = grey;
-                _checked = false;
             }
         }
         else if (state == Overgrown.GameEnums.CellState.Filled)
         {
             for (int i = 0; i < childObjects.Count; i++)
             {
+                tilebase.GetComponent<MeshRenderer>().sharedMaterial = tilebasemat;
                 childObjects[i].GetComponent<MeshRenderer>().sharedMaterials = originalMats[i];
-                _checked = true;
             }
         }
     }
