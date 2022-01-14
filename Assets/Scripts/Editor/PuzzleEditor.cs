@@ -21,6 +21,9 @@ public class PuzzleEditor : Editor
             myScript.PrintClues();
         }
 
-        
+
+
+
+
     }
 }

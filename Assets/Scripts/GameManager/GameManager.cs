@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
@@ -7,9 +9,11 @@ namespace Overgrown.GameManager
     {
         public GameState gameState = GameState.GameStart;
 
+        private PostProcessVolume ppVolume;
         [SerializeField]
-        private string sceneToLoad;
-
+        private PostProcessProfile ppProfileMenu;
+        [SerializeField]
+        private PostProcessProfile ppProfileGame;
 
         private static GameManager gameManager;
         private TimeManager timeManager;
@@ -21,8 +25,6 @@ namespace Overgrown.GameManager
         private Config config;
         private Player player;
 
-        public string SceneToLoad { get => sceneToLoad; }
-
         public static GameManager Instance { get => gameManager; }
         public TimeManager Time { get => timeManager; set => timeManager = value; }
         public GridManager GridManager { get => gridManager; set => gridManager = value; }
@@ -33,22 +35,36 @@ namespace Overgrown.GameManager
         public Config Config { get => config; set => config = value;}
         public Player Player { get => player; set => player = value; }
 
+        private void Start()
+        {
+            ppVolume = FindObjectOfType<PostProcessVolume>();
+        }
+
         public void SetStateToGameStart()
         {
             gameState = GameState.GameStart;
             uIManager.SwitchState(gameState);
+            ppVolume.profile = ppProfileMenu;
+            player.state = CameraState.Idle;
+            levelManager.activeLevel.World.ToggleHoverColoring(false);
         }
 
         public void SetStateToGame()
         {
             gameState = GameState.Game;
             uIManager.SwitchState(gameState);
+            ppVolume.profile = ppProfileGame; 
+            player.state = CameraState.Automatic;
+            levelManager.activeLevel.World.ToggleHoverColoring(true);
         }
 
         public void SetStateToGameOver()
         {
             gameState = GameState.GameOver;
             uIManager.SwitchState(gameState);
+            ppVolume.profile = ppProfileGame;
+            player.state = CameraState.Idle;
+            levelManager.activeLevel.World.ToggleHoverColoring(false);
         }
 
 

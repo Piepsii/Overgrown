@@ -15,7 +15,6 @@ public class ClueUI : MonoBehaviour
 
     public void CreateUI()
     {
-        Debug.Log("test");
         var level = GameManager.Instance.LevelManager.activeLevel;
         width = level.Width;
         height = level.Height;

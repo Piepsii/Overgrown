@@ -52,7 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  sceneToLoad: 
+  ppProfileMenu: {fileID: 11400000, guid: 296da7c20f50c094b92cea07226a86d6, type: 2}
+  ppProfileGame: {fileID: 11400000, guid: 641b082b2bab35c4abeb84dc243c4e63, type: 2}
 --- !u!1 &1853343439541933549
 GameObject:
   m_ObjectHideFlags: 0
