@@ -102,6 +102,22 @@ public class Puzzle : MonoBehaviour
             new_solution[i] = _temp;
         }
 
+        int count = 0;
+        for(int i = 0; i < height; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                if(!new_solution[i])
+                {
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                new_solution[i] = true;
+            }
+        }
+
         return new_solution;
     }
 

@@ -116,6 +116,7 @@ public class World : MonoBehaviour
         for (int i = 0; i < tiles.Count; i++)
         {
             tiles[i].GetComponent<Tile>().EnableTrees();
+            tiles[i].GetComponent<Tile>().CrossState(false);
         }
     }
     public void DisableTrees()
