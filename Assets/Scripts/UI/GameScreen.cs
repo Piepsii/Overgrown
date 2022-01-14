@@ -13,6 +13,5 @@ public class GameScreen : MonoBehaviour
         var instance = Instantiate(clueUIObject, transform);
         instance.name = "ClueUI";
         clueUI = instance.AddComponent<ClueUI>();
-        clueUI.CreateUI();
     }
 }
