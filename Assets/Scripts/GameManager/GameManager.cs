@@ -46,6 +46,7 @@ namespace Overgrown.GameManager
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileMenu;
             player.state = CameraState.Idle;
+            levelManager.activeLevel.World.ToggleHoverColoring(false);
         }
 
         public void SetStateToGame()
@@ -54,6 +55,7 @@ namespace Overgrown.GameManager
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileGame; 
             player.state = CameraState.Automatic;
+            levelManager.activeLevel.World.ToggleHoverColoring(true);
         }
 
         public void SetStateToGameOver()
@@ -62,6 +64,7 @@ namespace Overgrown.GameManager
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileGame;
             player.state = CameraState.Idle;
+            levelManager.activeLevel.World.ToggleHoverColoring(false);
         }
 
 

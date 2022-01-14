@@ -58,6 +58,14 @@ public class World : MonoBehaviour
         tiles.Clear();
     }
 
+    public void ToggleHoverColoring(bool enabled)
+    {
+        foreach(Tile t in tiles)
+        {
+            t.enableHoverColoring = enabled;
+        }
+    }
+
     void ClearConsole()
     {
         var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
