@@ -11,6 +11,7 @@ public class ClueUI : MonoBehaviour
     private Puzzle puzzle;
     private VerticalLayoutGroup horizontalGroup;
     private HorizontalLayoutGroup verticalGroup;
+
     private TextMeshPro[] vertical, horizontal;
 
     public void CreateUI()
