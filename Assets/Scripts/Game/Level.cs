@@ -12,7 +12,6 @@ public class Level : MonoBehaviour
 
 
     private float timeAtStart;
-    private bool won;
     private World world;
     private Puzzle puzzle;
 
@@ -27,7 +26,6 @@ public class Level : MonoBehaviour
     private void Awake()
     {
         timeAtStart = Time.time;
-        won = false;
         
         puzzle = GetComponentInChildren<Puzzle>();
         puzzle.SetSizePercentage(width, height, percentage);
@@ -50,7 +48,6 @@ public class Level : MonoBehaviour
         if (puzzle.Solved)
         {
             world.OnWinSwitchOnTrees();
-            won = true;
         }
     }
 
