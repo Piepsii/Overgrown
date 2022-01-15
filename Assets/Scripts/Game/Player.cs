@@ -152,6 +152,7 @@ public class Player : MonoBehaviour
 
     private void IdleRotation()
     {
+        orbitAngles.x = 45f;
         orbitAngles.y += rotationSpeed / 4 * Time.unscaledDeltaTime;
     }
 
