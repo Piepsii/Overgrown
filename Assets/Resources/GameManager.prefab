@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  ppProfileMenu: {fileID: 11400000, guid: 296da7c20f50c094b92cea07226a86d6, type: 2}
-  ppProfileGame: {fileID: 11400000, guid: 641b082b2bab35c4abeb84dc243c4e63, type: 2}
+  ppProfileMenu: {fileID: 11400000, guid: ea626ff3ea3a1cd48a12cd7eabd83c5a, type: 2}
+  ppProfileGame: {fileID: 11400000, guid: 1a7e343ad157427479569ea3a4c4aa95, type: 2}
 --- !u!1 &1853343439541933549
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cde4396f10183c4eb469bc7f3448204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   focus: {fileID: 0}
   distance: 120
   minDistance: 40
@@ -704,3 +705,4 @@ MonoBehaviour:
   rotationSpeed: 141
   minVerticalAngle: 10
   maxVerticalAngle: 80
+  alignSmoothRange: 45
