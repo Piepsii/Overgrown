@@ -34,7 +34,6 @@ public class World : MonoBehaviour
         }
         else
         {
-            ClearConsole();
             GenerateGrid(grid_rows, grid_columns);
         }
     }
@@ -60,7 +59,6 @@ public class World : MonoBehaviour
 
     public void DeleteGrid()
     {
-        ClearConsole();
         for (int i = 0; i < transform.childCount;)
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
@@ -74,14 +72,6 @@ public class World : MonoBehaviour
         {
             t.enableHoverColoring = enabled;
         }
-    }
-
-    void ClearConsole()
-    {
-        var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
-        var type = assembly.GetType("UnityEditor.LogEntries");
-        var method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
     }
 
     public void SetRowsColumns(int _rows, int _columns)

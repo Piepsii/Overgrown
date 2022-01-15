@@ -77,10 +77,6 @@ namespace Overgrown.GameManager
                 Debug.Log("GameManager: GameManager prefab does not contain a GameManager script");
             }
             DontDestroyOnLoad(prefab);
-
-#if UNITY_WEBGL
-        Cursor.lockState = CursorLockMode.Locked;
-#endif
         }
 
     }
