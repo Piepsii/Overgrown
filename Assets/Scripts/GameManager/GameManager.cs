@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
 using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
@@ -9,11 +8,11 @@ namespace Overgrown.GameManager
     {
         public GameState gameState = GameState.GameStart;
 
-        private PostProcessVolume ppVolume;
+        private Volume ppVolume;
         [SerializeField]
-        private PostProcessProfile ppProfileMenu;
+        private VolumeProfile ppProfileMenu;
         [SerializeField]
-        private PostProcessProfile ppProfileGame;
+        private VolumeProfile ppProfileGame;
 
         private static GameManager gameManager;
         private TimeManager timeManager;
@@ -37,7 +36,7 @@ namespace Overgrown.GameManager
 
         private void Start()
         {
-            ppVolume = FindObjectOfType<PostProcessVolume>();
+            ppVolume = FindObjectOfType<Volume>();
         }
 
         public void SetStateToGameStart()

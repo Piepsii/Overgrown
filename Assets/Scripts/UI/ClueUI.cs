@@ -18,7 +18,7 @@ public class ClueUI : MonoBehaviour
 
     private HorizontalLayoutGroup[] rows;
     private VerticalLayoutGroup[] columns;
-    private Sprite[] icons = new Sprite[4];
+    private Sprite[] icons = new Sprite[5];
     private Image[][] rowClues, columnClues;
 
     private void Start()
