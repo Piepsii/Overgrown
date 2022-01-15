@@ -18,7 +18,7 @@ public class ClueUI : MonoBehaviour
 
     private HorizontalLayoutGroup[] rows;
     private VerticalLayoutGroup[] columns;
-    private Sprite[] icons = new Sprite[4];
+    private Sprite[] icons = new Sprite[5];
     private Image[][] rowClues, columnClues;
 
     private void Start()
@@ -28,6 +28,8 @@ public class ClueUI : MonoBehaviour
             icons[i] = Resources.Load<Sprite>("Sprites/S_House_" + (i + 1).ToString());
         }
         CreateUI();
+        transform.Rotate(new Vector3(1, 0, 0), 90);
+        verticalGroup.transform.Translate(new Vector3(-5, 45));
     }
 
     private void CreateUI()
@@ -49,7 +51,6 @@ public class ClueUI : MonoBehaviour
             CreateUIWithNumbers();
         }
 
-        transform.eulerAngles = new Vector3(90, 0, 0);
     }
 
     private void CreateUIWithSymbols()
