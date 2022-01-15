@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     Vector2 orbitAngles = new Vector2(45f, 0f);
     string leftMouseButton = "LMB";
     string rightMouseButton = "RMB";
-    bool needsSetup = false;
 
     private void Awake()
     {
