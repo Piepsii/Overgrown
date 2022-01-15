@@ -107,7 +107,7 @@ public class Puzzle : MonoBehaviour
         {
             for(int j = 0; j < width; j++)
             {
-                if(!new_solution[i])
+                if(!new_solution[width + (height * i)])
                 {
                     count++;
                 }
