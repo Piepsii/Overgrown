@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using Overgrown.GameEnums;
 
 namespace Overgrown.GameManager
@@ -16,23 +17,13 @@ namespace Overgrown.GameManager
 
         private static GameManager gameManager;
         private TimeManager timeManager;
-        private GridManager gridManager;
-        private SceneManager sceneManager;
         private LevelManager levelManager;
-        private AudioManager audioManager;
         private UIManager uIManager;
-        private Config config;
-        private Player player;
 
         public static GameManager Instance { get => gameManager; }
         public TimeManager Time { get => timeManager; set => timeManager = value; }
-        public GridManager GridManager { get => gridManager; set => gridManager = value; }
-        public SceneManager SceneController { get => sceneManager; set => sceneManager = value; }
         public LevelManager LevelManager { get => levelManager; set => levelManager = value; }
-        public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
         public UIManager UIManager { get => uIManager; set => uIManager = value; }
-        public Config Config { get => config; set => config = value;}
-        public Player Player { get => player; set => player = value; }
 
         private void Start()
         {
@@ -44,27 +35,40 @@ namespace Overgrown.GameManager
             gameState = GameState.GameStart;
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileMenu;
-            player.state = CameraState.Idle;
-            levelManager.activeLevel.World.ToggleHoverColoring(false);
+            GameObject.FindWithTag("Player").GetComponent<Player>().state = CameraState.Idle;
+            levelManager.level.World.ToggleHoverColoring(false);
         }
 
         public void SetStateToGame()
         {
             gameState = GameState.Game;
             uIManager.SwitchState(gameState);
-            ppVolume.profile = ppProfileGame; 
-            player.state = CameraState.Automatic;
-            levelManager.activeLevel.World.ToggleHoverColoring(true);
-            levelManager.activeLevel.CreateLevel();
+            ppVolume.profile = ppProfileGame;
+            GameObject.FindWithTag("Player").GetComponent<Player>().state = CameraState.Automatic;
+            levelManager.level.World.ToggleHoverColoring(true);
+            levelManager.level.CreateLevel();
         }
 
+        public void RestartGame()
+        {
+            gameState = GameState.Game;
+            uIManager.SwitchState(gameState);
+            ppVolume.profile = ppProfileGame;
+            GameObject.FindWithTag("Player").GetComponent<Player>().state = CameraState.Automatic;
+            levelManager.level.World.ToggleHoverColoring(false);
+            levelManager.level.CreatePuzzle();
+            levelManager.level.CreateLevel();
+            levelManager.level.World.DisableTrees();
+        }
+
+        [ContextMenu("Set Game Over")]
         public void SetStateToGameOver()
         {
             gameState = GameState.GameOver;
             uIManager.SwitchState(gameState);
             ppVolume.profile = ppProfileGame;
-            player.state = CameraState.Idle;
-            levelManager.activeLevel.World.ToggleHoverColoring(false);
+            GameObject.FindWithTag("Player").GetComponent<Player>().state = CameraState.Idle;
+            levelManager.level.World.ToggleHoverColoring(false);
         }
 
 

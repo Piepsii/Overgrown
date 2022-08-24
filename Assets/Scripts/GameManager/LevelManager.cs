@@ -6,7 +6,7 @@ namespace Overgrown.GameManager
     public class LevelManager : MonoBehaviour
     {
         public GameObject levelPrefab;
-        public Level activeLevel;
+        public Level level;
 
         private void Start()
         {
@@ -14,27 +14,17 @@ namespace Overgrown.GameManager
             {
                 GameManager.Instance.LevelManager = this;
             }
-            activeLevel = FindObjectOfType<Level>();
+            level = FindObjectOfType<Level>();
         }
 
         public void ToggleCellState(int id)
         {
-            activeLevel.ToggleCellState(id);
+            level.ToggleCellState(id);
         }
 
         public void CrossCell(int id)
         {
-            activeLevel.CrossCell(id);
-        }
-
-        private bool CreateLevel()
-        {
-            if (levelPrefab)
-            {
-                Instantiate(levelPrefab);
-                return true;
-            }
-            return false;
+            level.CrossCell(id);
         }
     }
 }

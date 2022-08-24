@@ -10,6 +10,10 @@ public class GameScreen : MonoBehaviour
 
     public void Create()
     {
+        if (clueUI)
+        {
+            Destroy(clueUI.gameObject);
+        }
         var instance = Instantiate(clueUIObject, transform);
         instance.name = "ClueUI";
         clueUI = instance.AddComponent<ClueUI>();
