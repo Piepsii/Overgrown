@@ -34,7 +34,7 @@ public class ClueUI : MonoBehaviour
 
     private void CreateUI()
     {
-        var level = GameManager.Instance.LevelManager.activeLevel;
+        var level = GameManager.Instance.LevelManager.level;
         width = level.Width;
         height = level.Height;
         puzzle = level.Puzzle;

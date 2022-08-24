@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     Vector3 focusPoint;
     Vector2 orbitAngles = new Vector2(45f, 0f);
+    Vector2 mouseScrollInput;
     string leftMouseButton = "LMB";
     string rightMouseButton = "RMB";
 
@@ -35,10 +36,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance.Player == null)
-        {
-            GameManager.Instance.Player = this;
-        }
         CalculateCameraPosition();
     }
 
@@ -87,7 +84,7 @@ public class Player : MonoBehaviour
         }
 
         Vector3 lookDirection = lookRotation * Vector3.forward;
-        distance -= Input.mouseScrollDelta.y;
+        distance -= mouseScrollInput.y;
         distance = Mathf.Clamp(distance, minDistance, maxDistance);
         Vector3 lookPosition = focusPoint - lookDirection * distance;
         cam.transform.SetPositionAndRotation(lookPosition, lookRotation);
@@ -157,6 +154,8 @@ public class Player : MonoBehaviour
 
     private void CheckInput()
     {
+        mouseScrollInput = Input.mouseScrollDelta;
+
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))

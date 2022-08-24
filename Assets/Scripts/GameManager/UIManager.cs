@@ -13,11 +13,9 @@ namespace Overgrown.GameManager
         private GameScreen gameScreen;
         private GameOverScreen gameOverScreen;
 
-        private ScreenState screenState = ScreenState.GameStart;
 
         private void Awake()
         {
-            screenState = ScreenState.GameStart;
             canvas = Instantiate(canvas);
             canvas3D = Instantiate(canvas3D);
             canvas.name = "Canvas";
@@ -42,14 +40,12 @@ namespace Overgrown.GameManager
             switch (state)
             {
                 case GameState.GameStart:
-                    screenState = ScreenState.GameStart;
                     gameStartScreen.gameObject.SetActive(true);
                     gameScreen.gameObject.SetActive(false);
                     gameOverScreen.gameObject.SetActive(false);
 
                     break;
                 case GameState.Game:
-                    screenState = ScreenState.Game;
                     gameStartScreen.gameObject.SetActive(false);
                     gameScreen.gameObject.SetActive(true);
                     gameScreen.Create();
@@ -57,7 +53,6 @@ namespace Overgrown.GameManager
 
                     break;
                 case GameState.GameOver:
-                    screenState = ScreenState.GameOver;
                     gameStartScreen.gameObject.SetActive(false);
                     gameScreen.gameObject.SetActive(false);
                     gameOverScreen.gameObject.SetActive(true);

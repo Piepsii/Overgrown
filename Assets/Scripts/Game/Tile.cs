@@ -133,10 +133,7 @@ public class Tile : MonoBehaviour
     }
     public void DisableTrees()
     {
-        if (cellState == Overgrown.GameEnums.CellState.Crossed || cellState == Overgrown.GameEnums.CellState.Empty)
-        {
-            trees.SetActive(true);
-        }
+        trees.SetActive(false);
     }
 
 

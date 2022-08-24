@@ -37,6 +37,11 @@ public class Level : MonoBehaviour
         world.GenerateGrid(width, height);
     }
 
+    public void CreatePuzzle()
+    {
+        puzzle.NewPuzzle();
+    }
+
     public void CreateLevel()
     {
         world.GenerateGrid(width, height);
